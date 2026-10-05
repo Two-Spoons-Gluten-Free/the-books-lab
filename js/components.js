@@ -107,7 +107,8 @@ export function mission(m,state,onCheck,onAttempt,previous){
  box.querySelector('.checkpoint').append(exercise(m.checkpoint,onAttempt,previous));return box;
 }
 export function video(v){
- if(!v||v.todo)return node(`<aside class="video-note"><strong>Optional video</strong><p>${esc(v?.todo||'No verified clip selected. The interactive lesson contains everything you need.')}</p></aside>`);
+ // Clip-selection notes belong to editable content, not the learner interface.
+ if(!v||v.todo)return node('<div></div>');
  if(!/^[\w-]{11}$/.test(v.id)||!Number.isInteger(v.start)||!Number.isInteger(v.end)||v.end-v.start>300||v.end<=v.start)return node('<p>No verified clip configured.</p>');
  return node(`<aside><p>${esc(v.watchFor)}</p><iframe title="${esc(v.title)}" loading="lazy" src="https://www.youtube-nocookie.com/embed/${esc(v.id)}?start=${v.start}&end=${v.end}" allowfullscreen></iframe></aside>`);
 }
