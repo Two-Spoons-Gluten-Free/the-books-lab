@@ -1,0 +1,3787 @@
+{
+  "company": {
+    "name": "Cedar Grove Landscaping",
+    "description": "A fictional US landscaping business with recurring lawn-care customers, ACH and check receipts, and a CRM that sometimes fails to sync. All amounts and customers in this lab are fictional.",
+    "basis": "Accrual basis: earned revenue is recorded when invoiced, and expenses when incurred. Cash-basis reports change timing; they do not make duplicate records acceptable.",
+    "sandboxUrl": "https://qbo.intuit.com/redir/testdrive",
+    "navigationNote": "Use + New (or + Create), search, and Settings ⚙ → Chart of Accounts. Bank feeds may say For Review / Categorized / Excluded, or Pending / Posted / Excluded; Add may appear as Post. Search for the form name if your layout differs."
+  },
+  "skills": [
+    "Account Types",
+    "Double Entry",
+    "Customer Cash Cycle",
+    "Bank Feed Decisions",
+    "Vendor Cycle",
+    "Reconciliation",
+    "Exception Handling"
+  ],
+  "accounts": [
+    {
+      "name": "Checking",
+      "type": "Asset"
+    },
+    {
+      "name": "Savings",
+      "type": "Asset"
+    },
+    {
+      "name": "Accounts Receivable",
+      "type": "Asset"
+    },
+    {
+      "name": "Undeposited Funds",
+      "type": "Asset"
+    },
+    {
+      "name": "Equipment",
+      "type": "Asset"
+    },
+    {
+      "name": "Accounts Payable",
+      "type": "Liability"
+    },
+    {
+      "name": "Loan Payable",
+      "type": "Liability"
+    },
+    {
+      "name": "Owner Equity",
+      "type": "Equity"
+    },
+    {
+      "name": "Owner Draw",
+      "type": "Equity"
+    },
+    {
+      "name": "Service Income",
+      "type": "Income"
+    },
+    {
+      "name": "Supplies Expense",
+      "type": "Expense"
+    },
+    {
+      "name": "Fuel Expense",
+      "type": "Expense"
+    },
+    {
+      "name": "Bank Fees",
+      "type": "Expense"
+    },
+    {
+      "name": "Repairs Expense",
+      "type": "Expense"
+    },
+    {
+      "name": "Insurance Expense",
+      "type": "Expense"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Intuit: categorize downloaded bank transactions",
+      "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/banking/categorize-match-online-bank-transactions-online/L1bTafTz3_US_en_US",
+      "verified": "2026-10-05"
+    },
+    {
+      "title": "Intuit: void or delete transactions",
+      "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/list-management/void-delete-transactions-quickbooks-online/L5sZV8GYh_US_en_US",
+      "verified": "2026-10-05"
+    },
+    {
+      "title": "Intuit: QuickBooks Online test drive",
+      "url": "https://qbo.intuit.com/redir/testdrive",
+      "verified": "2026-10-05"
+    },
+    {
+      "title": "Intuit: record a returned payment or bounced check",
+      "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/receive-payments/record-returned-bounced-check-using-expense/L4O144llZ_US_en_US",
+      "verified": "2026-10-05"
+    },
+    {
+      "title": "Intuit QuickBooks Team: refund an overpayment",
+      "url": "https://quickbooks.intuit.com/learn-support/en-us/payments/re-refund-to-customer-on-overpayment/01/641909",
+      "verified": "2026-10-05"
+    }
+  ],
+  "modules": [
+    {
+      "id": "m1",
+      "title": "The Money Map",
+      "skill": "Account Types",
+      "badge": "Account Types",
+      "minutes": 30,
+      "timeBudget": {
+        "hook": 2,
+        "learn": 6,
+        "practice": 12,
+        "mission": 7,
+        "check": 3
+      },
+      "hook": "Cedar Grove borrowed $2,000. Checking rose, but did the company earn $2,000? Decide what changed before calling it income.",
+      "learn": [
+        {
+          "title": "Five account types",
+          "text": "Assets are resources the business controls, including cash and customer receivables. Liabilities are obligations, including vendor bills and loans. Equity is the owner’s residual interest. Income increases equity through earned revenue; expenses decrease equity through costs. Owner investments and draws change equity without being income or expenses."
+        },
+        {
+          "title": "The equation stays balanced",
+          "text": "Assets = Liabilities + Equity. For the live diagram, expanded equity equals owner equity + income − expenses. A loan increases cash and a liability equally. An earned invoice increases AR and income equally. Paying a previously recorded bill reduces cash and AP; the expense was already recorded with the bill."
+        },
+        {
+          "title": "Active lab timing",
+          "text": "Take six active minutes with the equation: step forward and back through each event. Predict the five changes before revealing them. Spend twelve practice minutes sorting all accounts, then justify why a loan and collection are not income. Complete the seven-minute sandbox mission and three-minute check. Thirty minutes is an active-work target; use extra time for unfamiliar QBO screens."
+        }
+      ],
+      "diagram": {
+        "type": "equation",
+        "transactions": [
+          {
+            "label": "Owner invests $3,000",
+            "assets": 3000,
+            "liabilities": 0,
+            "equity": 3000,
+            "income": 0,
+            "expenses": 0
+          },
+          {
+            "label": "Borrow $2,000",
+            "assets": 2000,
+            "liabilities": 2000,
+            "equity": 0,
+            "income": 0,
+            "expenses": 0
+          },
+          {
+            "label": "Invoice earned work $500",
+            "assets": 500,
+            "liabilities": 0,
+            "equity": 0,
+            "income": 500,
+            "expenses": 0
+          },
+          {
+            "label": "Use supplies billed $120",
+            "assets": 0,
+            "liabilities": 120,
+            "equity": 0,
+            "income": 0,
+            "expenses": 120
+          },
+          {
+            "label": "Pay that bill $120",
+            "assets": -120,
+            "liabilities": -120,
+            "equity": 0,
+            "income": 0,
+            "expenses": 0
+          }
+        ]
+      },
+      "practice": [
+        {
+          "id": "m1-sort",
+          "type": "sort",
+          "title": "Classify the chart",
+          "prompt": "Place each account in its type. Explain the difference between AR and AP before submitting.",
+          "skill": "Account Types",
+          "categories": [
+            "Asset",
+            "Liability",
+            "Equity",
+            "Income",
+            "Expense"
+          ],
+          "items": [
+            {
+              "id": "m1-sort-1",
+              "label": "Checking",
+              "correct": "Asset",
+              "explanation": "A resource held or owed to Cedar Grove."
+            },
+            {
+              "id": "m1-sort-2",
+              "label": "Savings",
+              "correct": "Asset",
+              "explanation": "A resource held or owed to Cedar Grove."
+            },
+            {
+              "id": "m1-sort-3",
+              "label": "Accounts Receivable",
+              "correct": "Asset",
+              "explanation": "A resource held or owed to Cedar Grove."
+            },
+            {
+              "id": "m1-sort-4",
+              "label": "Undeposited Funds",
+              "correct": "Asset",
+              "explanation": "A resource held or owed to Cedar Grove."
+            },
+            {
+              "id": "m1-sort-5",
+              "label": "Equipment",
+              "correct": "Asset",
+              "explanation": "A resource held or owed to Cedar Grove."
+            },
+            {
+              "id": "m1-sort-6",
+              "label": "Accounts Payable",
+              "correct": "Liability",
+              "explanation": "An obligation Cedar Grove owes."
+            },
+            {
+              "id": "m1-sort-7",
+              "label": "Loan Payable",
+              "correct": "Liability",
+              "explanation": "An obligation Cedar Grove owes."
+            },
+            {
+              "id": "m1-sort-8",
+              "label": "Owner Equity",
+              "correct": "Equity",
+              "explanation": "An owner claim or withdrawal, not operating profit."
+            },
+            {
+              "id": "m1-sort-9",
+              "label": "Owner Draw",
+              "correct": "Equity",
+              "explanation": "An owner claim or withdrawal, not operating profit."
+            },
+            {
+              "id": "m1-sort-10",
+              "label": "Service Income",
+              "correct": "Income",
+              "explanation": "Earned service revenue increases equity."
+            },
+            {
+              "id": "m1-sort-11",
+              "label": "Supplies Expense",
+              "correct": "Expense",
+              "explanation": "A cost used to earn revenue decreases equity."
+            },
+            {
+              "id": "m1-sort-12",
+              "label": "Fuel Expense",
+              "correct": "Expense",
+              "explanation": "A cost used to earn revenue decreases equity."
+            },
+            {
+              "id": "m1-sort-13",
+              "label": "Bank Fees",
+              "correct": "Expense",
+              "explanation": "A cost used to earn revenue decreases equity."
+            },
+            {
+              "id": "m1-sort-14",
+              "label": "Repairs Expense",
+              "correct": "Expense",
+              "explanation": "A cost used to earn revenue decreases equity."
+            },
+            {
+              "id": "m1-sort-15",
+              "label": "Insurance Expense",
+              "correct": "Expense",
+              "explanation": "A cost used to earn revenue decreases equity."
+            }
+          ],
+          "explanation": "Classify what the account measures. A cash receipt or payment alone does not tell you its account type."
+        },
+        {
+          "id": "m1-events",
+          "type": "choice",
+          "title": "Which events earn income?",
+          "prompt": "Select every event that creates Service Income on an accrual basis.",
+          "skill": "Account Types",
+          "options": [
+            {
+              "id": "a",
+              "text": "Finish $500 lawn work and issue its first invoice",
+              "explanation": "Earned service creates AR and income."
+            },
+            {
+              "id": "b",
+              "text": "Receive $500 on that existing invoice",
+              "explanation": "Collection swaps AR for cash; revenue was already recorded."
+            },
+            {
+              "id": "c",
+              "text": "Borrow $2,000",
+              "explanation": "A loan creates a liability, not revenue."
+            },
+            {
+              "id": "d",
+              "text": "Perform and collect $80 of walk-in work never recorded elsewhere",
+              "explanation": "A new earned cash sale creates income and cash."
+            }
+          ],
+          "correct": [
+            "a",
+            "d"
+          ],
+          "explanation": "Earned service creates AR and income.",
+          "multi": true
+        }
+      ],
+      "mission": {
+        "id": "m1-mission",
+        "title": "Sandbox: The Money Map",
+        "steps": [
+          "Open a QBO sandbox in another tab. Spend seven minutes inspecting accounts and applying the diagram transactions; do not use a live company.",
+          "Use Settings ⚙ → Chart of Accounts; search for Checking, Accounts Receivable and Accounts Payable. Note each type.",
+          "Find an income and an expense account. Compare their types with the five groups in the practice.",
+          "Run a Balance Sheet and Profit and Loss on accrual basis. Locate the five account types across these two reports."
+        ],
+        "checkpoint": {
+          "id": "m1-cp",
+          "type": "choice",
+          "title": "Report checkpoint",
+          "prompt": "Where should an unpaid customer invoice appear on an accrual Balance Sheet?",
+          "skill": "Account Types",
+          "options": [
+            {
+              "id": "a",
+              "text": "Accounts Receivable, an asset",
+              "explanation": "The customer owes the company; the invoice also records earned revenue."
+            },
+            {
+              "id": "b",
+              "text": "Accounts Payable",
+              "explanation": "AP is what the company owes vendors."
+            },
+            {
+              "id": "c",
+              "text": "Checking, an asset",
+              "explanation": "Checking holds deposited cash; the unpaid invoice is a receivable rather than bank cash."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The customer owes the company; the invoice also records earned revenue."
+        }
+      },
+      "check": [
+        {
+          "id": "m1-c1",
+          "type": "choice",
+          "title": "Loan versus income",
+          "prompt": "A $2,000 loan hits Checking. What balances increase?",
+          "skill": "Account Types",
+          "options": [
+            {
+              "id": "a",
+              "text": "Checking and Loan Payable",
+              "explanation": "Cash is an asset and repayment is an obligation. Income is unchanged."
+            },
+            {
+              "id": "b",
+              "text": "Checking and Service Income",
+              "explanation": "Borrowing is financing, not earned revenue."
+            },
+            {
+              "id": "c",
+              "text": "Checking and Owner Equity",
+              "explanation": "Borrowed funds must be repaid; a loan increases a liability, not the owner’s contribution."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cash is an asset and repayment is an obligation. Income is unchanged."
+        },
+        {
+          "id": "m1-c2",
+          "type": "choice",
+          "title": "Collect an invoice",
+          "prompt": "An invoice already recorded $500 of income. Its payment arrives. What happens?",
+          "skill": "Account Types",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cash increases and AR decreases $500",
+              "explanation": "Collection changes the composition of assets; accrual income does not increase again."
+            },
+            {
+              "id": "b",
+              "text": "Cash increases $500 and income increases $500",
+              "explanation": "Income was already recorded on the invoice. Collection should reduce AR instead of adding income."
+            },
+            {
+              "id": "c",
+              "text": "Cash and income both increase $500; AR is unchanged",
+              "explanation": "This repeats the invoice’s revenue and leaves the collected invoice open."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Collection changes the composition of assets; accrual income does not increase again."
+        },
+        {
+          "id": "m1-c3",
+          "type": "choice",
+          "title": "Draw versus expense",
+          "prompt": "The owner takes $100 for personal use. How is it classified?",
+          "skill": "Account Types",
+          "options": [
+            {
+              "id": "a",
+              "text": "Owner Draw, reducing equity",
+              "explanation": "A distribution to the owner is not a cost of providing services."
+            },
+            {
+              "id": "b",
+              "text": "Supplies Expense",
+              "explanation": "Personal spending is not a business operating expense."
+            },
+            {
+              "id": "c",
+              "text": "Loan Payable, increasing liabilities",
+              "explanation": "A personal withdrawal of owner funds is a distribution, not new borrowing."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "A distribution to the owner is not a cost of providing services."
+        }
+      ],
+      "video": {
+        "todo": "TODO: find clip for The Money Map"
+      }
+    },
+    {
+      "id": "m2",
+      "title": "Double Entry Without Tears",
+      "skill": "Double Entry",
+      "badge": "Double Entry",
+      "minutes": 30,
+      "timeBudget": {
+        "hook": 2,
+        "learn": 6,
+        "practice": 12,
+        "mission": 7,
+        "check": 3
+      },
+      "hook": "A $500 entry balances perfectly, but credits Service Income for a payment on an old invoice. Balanced does not always mean correct.",
+      "learn": [
+        {
+          "title": "Debit and credit are sides",
+          "text": "Debit means the left side of an account; credit means the right. Assets and expenses normally increase with debits. Liabilities, equity and income normally increase with credits. Decreases use the opposite side. Debits and credits are not universal synonyms for money in and out: a credit to AR reduces an asset while a credit to income increases revenue."
+        },
+        {
+          "title": "Two checks for every entry",
+          "text": "First check that total debits equal total credits. Then ask whether each account describes the actual event. An invoice debits AR and credits income. Collecting that invoice debits Checking or Undeposited Funds and credits AR. A balanced entry to the wrong account can still overstate income. QBO forms create the journals; use this builder to understand them."
+        },
+        {
+          "title": "Active lab timing",
+          "text": "Take six active minutes mapping normal balances. In twelve practice minutes, build all three entries, predict the live T-account effects, and try one balanced but incorrect account pair to study its feedback. Complete the seven-minute sandbox mission and three-minute check. Thirty minutes is an active-work target; use extra time for unfamiliar QBO screens."
+        }
+      ],
+      "diagram": {
+        "type": "decision",
+        "steps": [
+          {
+            "title": "Identify the event",
+            "text": "Is this earned work, collection, a bill, or payment of a bill?"
+          },
+          {
+            "title": "Choose the accounts",
+            "text": "Use the supporting invoice, receipt or bill to identify balances affected."
+          },
+          {
+            "title": "Choose each side",
+            "text": "Assets/expenses increase on debit; liabilities/equity/income increase on credit."
+          },
+          {
+            "title": "Check meaning and totals",
+            "text": "Equal debits and credits are necessary. Correct account selection is also necessary."
+          }
+        ]
+      },
+      "practice": [
+        {
+          "id": "m2-invoice",
+          "type": "journal",
+          "title": "Build an earned invoice",
+          "prompt": "Cedar Grove completes and invoices $500 of mowing. Use two journal lines.",
+          "skill": "Double Entry",
+          "accounts": [
+            "Checking",
+            "Savings",
+            "Accounts Receivable",
+            "Undeposited Funds",
+            "Equipment",
+            "Accounts Payable",
+            "Loan Payable",
+            "Owner Equity",
+            "Owner Draw",
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense"
+          ],
+          "expected": [
+            {
+              "account": "Accounts Receivable",
+              "debit": 500,
+              "credit": 0
+            },
+            {
+              "account": "Service Income",
+              "debit": 0,
+              "credit": 500
+            }
+          ],
+          "explanation": "The invoice creates a $500 claim on the customer and $500 earned revenue."
+        },
+        {
+          "id": "m2-payment",
+          "type": "journal",
+          "title": "Collect without new income",
+          "prompt": "That same customer pays $500 directly into Checking. Use two lines; do not earn the work twice.",
+          "skill": "Double Entry",
+          "accounts": [
+            "Checking",
+            "Savings",
+            "Accounts Receivable",
+            "Undeposited Funds",
+            "Equipment",
+            "Accounts Payable",
+            "Loan Payable",
+            "Owner Equity",
+            "Owner Draw",
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense"
+          ],
+          "expected": [
+            {
+              "account": "Checking",
+              "debit": 500,
+              "credit": 0
+            },
+            {
+              "account": "Accounts Receivable",
+              "debit": 0,
+              "credit": 500
+            }
+          ],
+          "explanation": "Checking rises and the receivable is settled. Crediting income here would leave AR open and repeat revenue."
+        },
+        {
+          "id": "m2-bill",
+          "type": "journal",
+          "title": "Record a vendor obligation",
+          "prompt": "A supplier bills $120 for supplies already used this month. No payment yet.",
+          "skill": "Double Entry",
+          "accounts": [
+            "Checking",
+            "Savings",
+            "Accounts Receivable",
+            "Undeposited Funds",
+            "Equipment",
+            "Accounts Payable",
+            "Loan Payable",
+            "Owner Equity",
+            "Owner Draw",
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense"
+          ],
+          "expected": [
+            {
+              "account": "Supplies Expense",
+              "debit": 120,
+              "credit": 0
+            },
+            {
+              "account": "Accounts Payable",
+              "debit": 0,
+              "credit": 120
+            }
+          ],
+          "explanation": "Expense and AP rise when the used supplies are billed. Paying later will reduce AP, not create this expense again."
+        }
+      ],
+      "mission": {
+        "id": "m2-mission",
+        "title": "Sandbox: Double Entry Without Tears",
+        "steps": [
+          "Open your sandbox and note the starting AR balance on an accrual Balance Sheet.",
+          "Use + New → Invoice (or search Invoice); create fictional customer Lab Double Entry and $100 of service work.",
+          "Open the saved invoice and find More → Transaction journal or search the transaction journal report. Identify the debit and credit.",
+          "Compare the new accrual AR balance with the starting balance. Spend remaining mission time tracing the income account on the Profit and Loss."
+        ],
+        "checkpoint": {
+          "id": "m2-cp",
+          "type": "choice",
+          "title": "Invoice checkpoint",
+          "prompt": "Compared with before, what did your $100 unpaid invoice change?",
+          "skill": "Double Entry",
+          "options": [
+            {
+              "id": "a",
+              "text": "AR +$100 and income +$100",
+              "explanation": "An accrual invoice recognizes earned revenue and the receivable."
+            },
+            {
+              "id": "b",
+              "text": "Checking +$100",
+              "explanation": "An unpaid invoice has not put money in Checking."
+            },
+            {
+              "id": "c",
+              "text": "AR +$100 and AP +$100",
+              "explanation": "The customer invoice creates earned income, not an obligation to a vendor."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "An accrual invoice recognizes earned revenue and the receivable."
+        }
+      },
+      "check": [
+        {
+          "id": "m2-c1",
+          "type": "choice",
+          "title": "Normal balance",
+          "prompt": "Which side increases Accounts Receivable?",
+          "skill": "Double Entry",
+          "options": [
+            {
+              "id": "a",
+              "text": "Debit",
+              "explanation": "AR is an asset, so its increase is a debit."
+            },
+            {
+              "id": "b",
+              "text": "Credit",
+              "explanation": "A credit reduces AR."
+            },
+            {
+              "id": "c",
+              "text": "Both debit and credit equally",
+              "explanation": "Equal increases and decreases cancel; only a debit increases AR’s net asset balance."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "AR is an asset, so its increase is a debit."
+        },
+        {
+          "id": "m2-c2",
+          "type": "choice",
+          "title": "Balanced but wrong",
+          "prompt": "Debit Checking $500, credit income $500 for an existing invoiced sale. Is it correct?",
+          "skill": "Double Entry",
+          "options": [
+            {
+              "id": "a",
+              "text": "No: balanced totals, wrong credit account",
+              "explanation": "AR should decrease; income was already earned on the invoice."
+            },
+            {
+              "id": "b",
+              "text": "Yes: equal debits and credits prove correctness",
+              "explanation": "Balance checks arithmetic, not the economic meaning of the accounts."
+            },
+            {
+              "id": "c",
+              "text": "No: the debit should be to expense, with the same income credit",
+              "explanation": "The actual bank receipt increases Checking. The problem is the income credit; it should reduce AR."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "AR should decrease; income was already earned on the invoice."
+        },
+        {
+          "id": "m2-c3",
+          "type": "choice",
+          "title": "Pay a recorded bill",
+          "prompt": "Which entry pays an already recorded $120 bill?",
+          "skill": "Double Entry",
+          "options": [
+            {
+              "id": "a",
+              "text": "Debit AP $120; credit Checking $120",
+              "explanation": "The payment reduces a liability and cash."
+            },
+            {
+              "id": "b",
+              "text": "Debit expense $120; credit Checking $120",
+              "explanation": "The bill already recorded the expense."
+            },
+            {
+              "id": "c",
+              "text": "Debit Checking $120; credit AP $120",
+              "explanation": "These sides increase cash and the vendor liability—the opposite of settling the bill."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The payment reduces a liability and cash."
+        }
+      ],
+      "video": {
+        "todo": "TODO: find clip for Double Entry Without Tears"
+      }
+    },
+    {
+      "id": "m3",
+      "title": "The Customer Cash Cycle",
+      "skill": "Customer Cash Cycle",
+      "badge": "Clean Deposits",
+      "minutes": 30,
+      "timeBudget": {
+        "hook": 2,
+        "learn": 6,
+        "practice": 12,
+        "mission": 7,
+        "check": 3
+      },
+      "hook": "The bank received $500 from Oak Court. QBO shows $1,000 of income and an unpaid $500 invoice. Follow both paths to find the extra $500.",
+      "learn": [
+        {
+          "title": "Invoice, payment, deposit",
+          "text": "An invoice records earned revenue and AR. Receive Payment applies collection to that specific customer invoice. Deposit to Undeposited Funds holds receipts until you group them into the actual bank deposit. In Bank Deposit, select the held payments. A single ACH already deposited can instead be received directly to Checking, then matched; do not also create a Bank Deposit."
+        },
+        {
+          "title": "Why the wrong shortcut fails",
+          "text": "Adding an invoiced customer receipt directly to income records the sale a second time and never clears the invoice. To repair an unreconciled mistake, inspect the invoice and Audit Log, undo the wrong feed categorization, remove the erroneous added deposit, record the proper payment and deposit, and match. Protect closed periods and get the supervisor involved before changing reconciled records."
+        },
+        {
+          "title": "Active lab timing",
+          "text": "Take six active minutes stepping both $500 flows; predict AR, UF and income before each step. Spend twelve practice minutes building the payment and deposit, then explain the two errors in the wrong path aloud. Complete the seven-minute sandbox mission and three-minute check. Thirty minutes is an active-work target; use extra time for unfamiliar QBO screens."
+        }
+      ],
+      "diagram": {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Start",
+            "note": "Incremental balances for this $500 job only; not company totals.",
+            "balances": {
+              "Checking": 0,
+              "AR": 0,
+              "UF": 0,
+              "Income": 0,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": []
+          },
+          {
+            "label": "Invoice",
+            "note": "Earned work creates AR and income.",
+            "balances": {
+              "Checking": 0,
+              "AR": 500,
+              "UF": 0,
+              "Income": 500,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": [
+              {
+                "account": "Accounts Receivable",
+                "debit": 500,
+                "credit": 0
+              },
+              {
+                "account": "Service Income",
+                "debit": 0,
+                "credit": 500
+              }
+            ]
+          },
+          {
+            "label": "Receive Payment",
+            "note": "Apply payment to the invoice; choose Undeposited Funds (Payments to deposit).",
+            "balances": {
+              "Checking": 0,
+              "AR": 0,
+              "UF": 500,
+              "Income": 500,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": [
+              {
+                "account": "Undeposited Funds",
+                "debit": 500,
+                "credit": 0
+              },
+              {
+                "account": "Accounts Receivable",
+                "debit": 0,
+                "credit": 500
+              }
+            ]
+          },
+          {
+            "label": "Bank Deposit",
+            "note": "Select the existing payment, rather than adding a new income line.",
+            "balances": {
+              "Checking": 500,
+              "AR": 0,
+              "UF": 0,
+              "Income": 500,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": [
+              {
+                "account": "Checking",
+                "debit": 500,
+                "credit": 0
+              },
+              {
+                "account": "Undeposited Funds",
+                "debit": 0,
+                "credit": 500
+              }
+            ]
+          },
+          {
+            "label": "Match",
+            "note": "Link the bank download to this existing deposit. Match creates no second income entry.",
+            "balances": {
+              "Checking": 500,
+              "AR": 0,
+              "UF": 0,
+              "Income": 500,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": []
+          }
+        ],
+        "wrongSteps": [
+          {
+            "label": "Invoice",
+            "note": "Same earned $500 job.",
+            "balances": {
+              "Checking": 0,
+              "AR": 500,
+              "UF": 0,
+              "Income": 500,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": [
+              {
+                "account": "Accounts Receivable",
+                "debit": 500,
+                "credit": 0
+              },
+              {
+                "account": "Service Income",
+                "debit": 0,
+                "credit": 500
+              }
+            ]
+          },
+          {
+            "label": "Add deposit as income",
+            "note": "One actual $500 receipt, but no Receive Payment against the invoice.",
+            "balances": {
+              "Checking": 500,
+              "AR": 500,
+              "UF": 0,
+              "Income": 1000,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": [
+              {
+                "account": "Checking",
+                "debit": 500,
+                "credit": 0
+              },
+              {
+                "account": "Service Income",
+                "debit": 0,
+                "credit": 500
+              }
+            ]
+          },
+          {
+            "label": "Compare",
+            "note": "Income is overstated $500 and AR remains incorrectly open $500.",
+            "balances": {
+              "Checking": 500,
+              "AR": 500,
+              "UF": 0,
+              "Income": 1000,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": []
+          }
+        ]
+      },
+      "practice": [
+        {
+          "id": "m3-receive",
+          "type": "journal",
+          "title": "Move AR into holding",
+          "prompt": "Oak Court pays its existing $500 invoice by check. Record collection to Undeposited Funds.",
+          "skill": "Customer Cash Cycle",
+          "accounts": [
+            "Checking",
+            "Savings",
+            "Accounts Receivable",
+            "Undeposited Funds",
+            "Equipment",
+            "Accounts Payable",
+            "Loan Payable",
+            "Owner Equity",
+            "Owner Draw",
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense"
+          ],
+          "expected": [
+            {
+              "account": "Undeposited Funds",
+              "debit": 500,
+              "credit": 0
+            },
+            {
+              "account": "Accounts Receivable",
+              "debit": 0,
+              "credit": 500
+            }
+          ],
+          "explanation": "The customer has paid: AR is cleared. UF holds the receipt; no new income is recorded."
+        },
+        {
+          "id": "m3-deposit",
+          "type": "journal",
+          "title": "Move holding into Checking",
+          "prompt": "Deposit Oak Court’s $500 check already held in UF. Build the entry behind Bank Deposit.",
+          "skill": "Customer Cash Cycle",
+          "accounts": [
+            "Checking",
+            "Savings",
+            "Accounts Receivable",
+            "Undeposited Funds",
+            "Equipment",
+            "Accounts Payable",
+            "Loan Payable",
+            "Owner Equity",
+            "Owner Draw",
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense"
+          ],
+          "expected": [
+            {
+              "account": "Checking",
+              "debit": 500,
+              "credit": 0
+            },
+            {
+              "account": "Undeposited Funds",
+              "debit": 0,
+              "credit": 500
+            }
+          ],
+          "explanation": "This moves an asset between accounts. Select the held payment so UF clears; no income credit belongs here."
+        },
+        {
+          "id": "m3-wrong",
+          "type": "choice",
+          "title": "Diagnose the shortcut",
+          "prompt": "After the wrong $500 Add, what two errors exist?",
+          "skill": "Customer Cash Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Income overstated $500 and AR overstated $500",
+              "explanation": "Cash is correct for one receipt, but the sale is recorded twice and the invoice remains unpaid."
+            },
+            {
+              "id": "b",
+              "text": "Checking overstated $500 and AR cleared",
+              "explanation": "The wrong deposit records real cash once but fails to apply it to AR."
+            },
+            {
+              "id": "c",
+              "text": "Income correct; only AR overstated $500",
+              "explanation": "The invoice and the new income deposit each record $500, so income is also overstated $500."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cash is correct for one receipt, but the sale is recorded twice and the invoice remains unpaid."
+        }
+      ],
+      "mission": {
+        "id": "m3-mission",
+        "title": "Sandbox: The Customer Cash Cycle",
+        "steps": [
+          "Open your sandbox. Note Checking, AR, Undeposited Funds and accrual income before this isolated example.",
+          "Use + New → Invoice; create Lab Oak Court and a $500 service invoice. Save and inspect the customer balance.",
+          "Use + New → Receive Payment; select Lab Oak Court and this invoice. Deposit to Undeposited Funds (Payments to deposit).",
+          "Use + New → Bank Deposit; select Checking and the existing $500 payment. Do not add a new income line.",
+          "Inspect the saved deposit and invoice status. If a sandbox feed has the same real download, use Find match; otherwise explain which saved deposit you would match.",
+          "Compare account changes from before: Checking +$500, AR no net change, UF no net change, income +$500."
+        ],
+        "checkpoint": {
+          "id": "m3-cp",
+          "type": "choice",
+          "title": "UF checkpoint",
+          "prompt": "Immediately after Receive Payment to UF, before Bank Deposit, how has UF changed from before this payment?",
+          "skill": "Customer Cash Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Increased $500",
+              "explanation": "The receipt is held in UF until its deposit is recorded."
+            },
+            {
+              "id": "b",
+              "text": "Stayed unchanged",
+              "explanation": "Receiving to UF increases it; depositing later decreases it."
+            },
+            {
+              "id": "c",
+              "text": "Decreased $500",
+              "explanation": "Receiving to UF increases this asset; the later Bank Deposit decreases it."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The receipt is held in UF until its deposit is recorded."
+        }
+      },
+      "check": [
+        {
+          "id": "m3-c1",
+          "type": "choice",
+          "title": "Invoice income",
+          "prompt": "At which step is accrual service income first recorded?",
+          "skill": "Customer Cash Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Invoice for completed work",
+              "explanation": "Payment, deposit and matching settle or move the existing asset."
+            },
+            {
+              "id": "b",
+              "text": "Bank feed Match",
+              "explanation": "Match links records; it does not earn the work."
+            },
+            {
+              "id": "c",
+              "text": "Receive Payment applied to the invoice",
+              "explanation": "On accrual basis the invoice already records income. Receive Payment reduces AR."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Payment, deposit and matching settle or move the existing asset."
+        },
+        {
+          "id": "m3-c2",
+          "type": "choice",
+          "title": "Direct bank payment",
+          "prompt": "A single ACH is deposited exactly as received. May Receive Payment use Checking?",
+          "skill": "Customer Cash Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Yes: select the invoice, deposit to Checking, then Match",
+              "explanation": "This clears AR without creating another income entry or a second deposit."
+            },
+            {
+              "id": "b",
+              "text": "No: every receipt must use UF",
+              "explanation": "UF is useful for grouped deposits, but an exact single ACH can be received directly to bank."
+            },
+            {
+              "id": "c",
+              "text": "Yes, then create a second Bank Deposit for the same ACH",
+              "explanation": "Receiving directly to Checking already records bank cash. Another deposit would repeat it."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "This clears AR without creating another income entry or a second deposit."
+        },
+        {
+          "id": "m3-c3",
+          "type": "choice",
+          "title": "Choose deposit rows",
+          "prompt": "Which row belongs on Bank Deposit for a payment already in UF?",
+          "skill": "Customer Cash Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Select the existing payment in Payments to deposit",
+              "explanation": "That links the deposit to UF and clears the held receipt."
+            },
+            {
+              "id": "b",
+              "text": "Add a new Service Income line",
+              "explanation": "A new income line repeats revenue and leaves the held receipt uncleared."
+            },
+            {
+              "id": "c",
+              "text": "Add a new Accounts Receivable line without selecting the held payment",
+              "explanation": "AR was already cleared by Receive Payment. The deposit must clear the held UF payment, not credit AR again."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "That links the deposit to UF and clears the held receipt."
+        }
+      ],
+      "video": {
+        "todo": "TODO: find clip for The Customer Cash Cycle"
+      }
+    },
+    {
+      "id": "m4",
+      "title": "Bank Feeds: Match, Add, Transfer, Exclude",
+      "skill": "Bank Feed Decisions",
+      "badge": "Feed Matcher",
+      "minutes": 30,
+      "timeBudget": {
+        "hook": 2,
+        "learn": 6,
+        "practice": 12,
+        "mission": 7,
+        "check": 3
+      },
+      "hook": "An ACH appeared, but the CRM sent no payment. The bank proves cash arrived; it does not tell you whether revenue was already invoiced.",
+      "learn": [
+        {
+          "title": "A feed is a queue, not the books",
+          "text": "A downloaded row awaits review. Match connects it to an existing entry; Add creates one. Transfer moves money between your company’s accounts. Exclude removes an irrelevant or duplicate downloaded row, not its ledger entry. Verify source documents and both accounts before excluding. Do not exclude real business activity merely because it is hard to match."
+        },
+        {
+          "title": "Search before Add",
+          "text": "Look for the customer and open invoices, then existing payments, sales receipts and deposits. An open invoice plus confirmed ACH calls for Receive Payment applied to that invoice. This lab makes you record that payment explicitly, then choose it in Find match. QBO can offer invoice matching that creates the payment automatically; verify the application and do not receive it twice. Add to income is appropriate only for earned work with no invoice and no existing sale."
+        },
+        {
+          "title": "Active lab timing",
+          "text": "Take six active minutes applying the decision tree to four source documents. Spend twelve practice minutes processing twelve feed rows, recording the missing payment and finding exact matches; explain each Add before submitting. Complete the seven-minute sandbox mission and three-minute check. Thirty minutes is an active-work target; use extra time for unfamiliar QBO screens."
+        }
+      ],
+      "diagram": {
+        "type": "decision",
+        "steps": [
+          {
+            "title": "Is it a verified duplicate download?",
+            "text": "Exclude the extra feed row only; keep the genuine transaction."
+          },
+          {
+            "title": "Is it a movement between company accounts?",
+            "text": "Use Transfer, or Match if the transfer was already recorded."
+          },
+          {
+            "title": "Does a ledger record already exist?",
+            "text": "Find match; compare payee, amount, date and bank account."
+          },
+          {
+            "title": "Is a customer invoice open?",
+            "text": "Receive Payment against the invoice, then Match the payment or grouped deposit."
+          },
+          {
+            "title": "Is the economic event genuinely unrecorded?",
+            "text": "Add to the appropriate account. Income only for an unrecorded earned sale."
+          }
+        ]
+      },
+      "practice": [
+        {
+          "id": "m4-feed",
+          "type": "feed",
+          "title": "Work the review queue",
+          "prompt": "For every row, choose an action. Match requires a specific record. Oak Court requires Receive Payment first; use the payment control before finding its match.",
+          "skill": "Bank Feed Decisions",
+          "lines": [
+            {
+              "id": "m4-line-1",
+              "date": "2026-09-02",
+              "description": "Oak Court ACH",
+              "amount": 500,
+              "context": "Invoice OC-500 is open. CRM payment is absent. Bank confirms $500 received.",
+              "action": "Match",
+              "explanation": "Receive Payment for invoice OC-500 to Checking first; then select the new payment as the match. Income was earned on the invoice.",
+              "requiresPayment": true,
+              "invoiceId": "oc500",
+              "matchId": "ocpay"
+            },
+            {
+              "id": "m4-line-2",
+              "date": "2026-09-03",
+              "description": "Grouped customer checks",
+              "amount": 750,
+              "context": "Two receipts totaling $750 are already in saved Bank Deposit DEP-750.",
+              "action": "Match",
+              "explanation": "Match the existing grouped deposit; do not add new income.",
+              "matchId": "dep750"
+            },
+            {
+              "id": "m4-line-3",
+              "date": "2026-09-04",
+              "description": "Pine Supply ACH",
+              "amount": -240,
+              "context": "Bill payment BP-240 is already recorded.",
+              "action": "Match",
+              "explanation": "The bill recorded expense and the payment reduced AP. A new expense would duplicate cost.",
+              "matchId": "bp240"
+            },
+            {
+              "id": "m4-line-4",
+              "date": "2026-09-05",
+              "description": "Walk-in hedge trim",
+              "amount": 85,
+              "context": "Work completed and paid immediately. Search confirms no invoice, sales receipt or other recorded sale.",
+              "action": "Add",
+              "explanation": "This is a genuinely unrecorded earned cash sale; Add to Service Income records it once.",
+              "category": "Service Income"
+            },
+            {
+              "id": "m4-line-5",
+              "date": "2026-09-06",
+              "description": "Fuel station",
+              "amount": -62,
+              "context": "Business fuel receipt verified; no bill, expense or card record already exists.",
+              "action": "Add",
+              "explanation": "An unrecorded fuel purchase belongs in Fuel Expense.",
+              "category": "Fuel Expense"
+            },
+            {
+              "id": "m4-line-6",
+              "date": "2026-09-07",
+              "description": "Move Checking to Savings",
+              "amount": -1000,
+              "context": "Bank confirms transfer to Cedar Grove Savings. Neither side is recorded yet.",
+              "action": "Transfer",
+              "explanation": "Record the asset transfer; it is not an operating expense."
+            },
+            {
+              "id": "m4-line-7",
+              "date": "2026-09-08",
+              "description": "Owner investment",
+              "amount": 1500,
+              "context": "Owner contribution, no existing record.",
+              "action": "Add",
+              "explanation": "Record equity, not earned income.",
+              "category": "Owner Equity"
+            },
+            {
+              "id": "m4-line-8",
+              "date": "2026-09-09",
+              "description": "Duplicate download of DEP-750",
+              "amount": 750,
+              "context": "Bank statement has only one $750 deposit; line 2 is the original download.",
+              "action": "Exclude",
+              "explanation": "Only the duplicate downloaded row is excluded; keep the legitimate bank deposit."
+            },
+            {
+              "id": "m4-line-9",
+              "date": "2026-09-10",
+              "description": "Monthly bank fee",
+              "amount": -15,
+              "context": "Statement fee not recorded elsewhere.",
+              "action": "Add",
+              "explanation": "Create Bank Fees expense once.",
+              "category": "Bank Fees"
+            },
+            {
+              "id": "m4-line-10",
+              "date": "2026-09-11",
+              "description": "Loan proceeds",
+              "amount": 2000,
+              "context": "Loan agreement verified; no record exists.",
+              "action": "Add",
+              "explanation": "Loan Payable increases; borrowing does not create income.",
+              "category": "Loan Payable"
+            },
+            {
+              "id": "m4-line-11",
+              "date": "2026-09-12",
+              "description": "Customer ACH Birch Lane",
+              "amount": 320,
+              "context": "Existing received payment RP-320 was deposited directly to Checking.",
+              "action": "Match",
+              "explanation": "Match the received payment; do not create another deposit.",
+              "matchId": "rp320"
+            },
+            {
+              "id": "m4-line-12",
+              "date": "2026-09-13",
+              "description": "Repair shop",
+              "amount": -180,
+              "context": "Expense EXP-180 already recorded from receipt.",
+              "action": "Match",
+              "explanation": "Link to the expense already in Checking.",
+              "matchId": "exp180"
+            }
+          ],
+          "matches": [
+            {
+              "id": "ocpay",
+              "label": "Receive Payment OC-500 (after recording)",
+              "amount": 500
+            },
+            {
+              "id": "dep750",
+              "label": "DEP-750 grouped deposit",
+              "amount": 750
+            },
+            {
+              "id": "bp240",
+              "label": "BP-240 bill payment",
+              "amount": -240
+            },
+            {
+              "id": "rp320",
+              "label": "RP-320 Birch Lane payment",
+              "amount": 320
+            },
+            {
+              "id": "exp180",
+              "label": "EXP-180 repair",
+              "amount": -180
+            }
+          ],
+          "invoices": [
+            {
+              "id": "oc500",
+              "customer": "Oak Court",
+              "amount": 500,
+              "status": "Open $500; CRM payment absent, confirmed ACH requires Receive Payment before Match."
+            }
+          ],
+          "categories": [
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense",
+            "Owner Equity",
+            "Loan Payable"
+          ],
+          "explanation": "Search for an existing record and verify customer, amount and date before posting. Missing invoice payments must be recorded against AR before matching. Add creates a new record; Exclude only removes a download from review."
+        },
+        {
+          "id": "m4-sort",
+          "type": "sort",
+          "title": "Decide with evidence",
+          "prompt": "Classify these four situations before repeating the queue. Explain what evidence makes Add safe.",
+          "skill": "Bank Feed Decisions",
+          "categories": [
+            "Match",
+            "Add",
+            "Transfer",
+            "Exclude"
+          ],
+          "items": [
+            {
+              "id": "m4-sort-1",
+              "label": "A saved bill payment matches the bank withdrawal",
+              "correct": "Match",
+              "explanation": "The outgoing cash is already recorded."
+            },
+            {
+              "id": "m4-sort-2",
+              "label": "An earned cash sale has no invoice and no recorded sale",
+              "correct": "Add",
+              "explanation": "A new sale must be recorded once."
+            },
+            {
+              "id": "m4-sort-3",
+              "label": "Unrecorded Checking-to-Savings movement",
+              "correct": "Transfer",
+              "explanation": "Two asset accounts change; income and expenses do not."
+            },
+            {
+              "id": "m4-sort-4",
+              "label": "A repeated download; the statement has one occurrence",
+              "correct": "Exclude",
+              "explanation": "Only the surplus imported row is removed."
+            }
+          ],
+          "explanation": "Classify what the account measures. A cash receipt or payment alone does not tell you its account type."
+        },
+        {
+          "id": "m4-action-sort",
+          "type": "sort",
+          "title": "Sort by economic event",
+          "prompt": "Sort each downloaded line into its bank-feed action. Decide whether a ledger record already exists before acting.",
+          "skill": "Bank Feed Decisions",
+          "categories": [
+            "Match",
+            "Add",
+            "Transfer",
+            "Exclude"
+          ],
+          "items": [
+            {
+              "id": "existing-payment",
+              "label": "$240 Pine Supply withdrawal: a verified Bill Payment already exists",
+              "correct": "Match",
+              "explanation": "Match the existing bill payment. Adding an expense would duplicate the withdrawal and expense."
+            },
+            {
+              "id": "new-fee",
+              "label": "$15 bank service fee: verified on the statement, not recorded in QBO",
+              "correct": "Add",
+              "explanation": "This new, documented fee has no existing expense to match. Add it to Bank Fees Expense."
+            },
+            {
+              "id": "own-accounts",
+              "label": "$600 moved from Checking to Savings: no transfer yet recorded",
+              "correct": "Transfer",
+              "explanation": "This moves assets between business accounts. Record one transfer, then match the other feed side; neither income nor expense changes."
+            },
+            {
+              "id": "duplicate-import",
+              "label": "A second feed import of the same $90 transaction: only one movement on the statement",
+              "correct": "Exclude",
+              "explanation": "Exclude the confirmed duplicate download, preserving the genuine transaction and its ledger entry."
+            }
+          ],
+          "explanation": "Match an existing record; Add a genuinely new economic event; Transfer between business accounts; Exclude confirmed duplicate or irrelevant downloads. Real unresolved receipts must be investigated, not excluded."
+        }
+      ],
+      "mission": {
+        "id": "m4-mission",
+        "title": "Sandbox: Bank Feeds: Match, Add, Transfer, Exclude",
+        "steps": [
+          "Open your sandbox and note AR and accrual income. Create Lab CRM Gap and a $500 service invoice using + New → Invoice.",
+          "Pretend a confirmed $500 ACH reached the bank but the CRM did not send a payment. Search the customer: verify the invoice is open and no payment exists.",
+          "Use + New → Receive Payment. Select this invoice and deposit directly to Checking because the ACH is one exact receipt.",
+          "Search the payment in Checking. Verify the invoice is paid and no second income entry was created.",
+          "If a sandbox bank feed contains a matching download, use Find match and select this payment; otherwise document its date and amount as the intended match. Do not manufacture an extra deposit.",
+          "Compare AR, Checking and accrual income before and after payment: AR −$500, Checking +$500, income unchanged by payment."
+        ],
+        "checkpoint": {
+          "id": "m4-cp",
+          "type": "choice",
+          "title": "Missing CRM checkpoint",
+          "prompt": "After your payment step, what changed compared with just after the invoice?",
+          "skill": "Bank Feed Decisions",
+          "options": [
+            {
+              "id": "a",
+              "text": "AR −$500; Checking +$500; income unchanged",
+              "explanation": "The correct payment collects the existing receivable."
+            },
+            {
+              "id": "b",
+              "text": "Income +$500 again",
+              "explanation": "The invoice already earned that revenue."
+            },
+            {
+              "id": "c",
+              "text": "AR unchanged; Checking +$500; income +$500",
+              "explanation": "This is the wrong Add-to-income path: it leaves the invoice open and duplicates revenue."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The correct payment collects the existing receivable."
+        }
+      },
+      "check": [
+        {
+          "id": "m4-c1",
+          "type": "choice",
+          "title": "Safe Add",
+          "prompt": "When is Add to Service Income justified?",
+          "skill": "Bank Feed Decisions",
+          "options": [
+            {
+              "id": "a",
+              "text": "Earned cash work with no invoice and no already recorded sale",
+              "explanation": "Search first; Add must create a genuinely new sale."
+            },
+            {
+              "id": "b",
+              "text": "Whenever there is no suggested match",
+              "explanation": "A missing suggestion does not prove a sale is unrecorded."
+            },
+            {
+              "id": "c",
+              "text": "The CRM sent no payment, but an invoice for that sale is open",
+              "explanation": "The missing payment must settle the invoice through AR; absence of a CRM payment does not erase the recorded sale."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Search first; Add must create a genuinely new sale."
+        },
+        {
+          "id": "m4-c2",
+          "type": "choice",
+          "title": "Exclude evidence",
+          "prompt": "A bank withdrawal has no suggested match. May you Exclude it?",
+          "skill": "Bank Feed Decisions",
+          "options": [
+            {
+              "id": "a",
+              "text": "No: investigate the real transaction",
+              "explanation": "Exclude is not a way to hide business cash movement."
+            },
+            {
+              "id": "b",
+              "text": "Yes: missing matches do not belong in the books",
+              "explanation": "The bank statement still contains the withdrawal."
+            },
+            {
+              "id": "c",
+              "text": "Yes, if another transaction has the same amount",
+              "explanation": "The same amount alone does not prove a duplicate download. Verify statement occurrence, payee and date."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Exclude is not a way to hide business cash movement."
+        },
+        {
+          "id": "m4-c3",
+          "type": "choice",
+          "title": "Transfer impact",
+          "prompt": "Move $1,000 from Checking to Savings. What happens to profit?",
+          "skill": "Bank Feed Decisions",
+          "options": [
+            {
+              "id": "a",
+              "text": "No change",
+              "explanation": "One asset decreases and another increases."
+            },
+            {
+              "id": "b",
+              "text": "Profit decreases $1,000",
+              "explanation": "An asset transfer is not an expense."
+            },
+            {
+              "id": "c",
+              "text": "Profit increases $1,000",
+              "explanation": "A receipt into Savings is not revenue when it comes from the company’s own Checking account."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "One asset decreases and another increases."
+        }
+      ],
+      "video": {
+        "todo": "TODO: find clip for Bank Feeds: Match, Add, Transfer, Exclude"
+      }
+    },
+    {
+      "id": "m5",
+      "title": "The Vendor Side",
+      "skill": "Vendor Cycle",
+      "badge": "Vendor Cycle",
+      "minutes": 30,
+      "timeBudget": {
+        "hook": 2,
+        "learn": 6,
+        "practice": 12,
+        "mission": 7,
+        "check": 3
+      },
+      "hook": "Pine Supply was paid $240, but its bill still shows due. A bank withdrawal was added as expense instead of applied to the bill.",
+      "learn": [
+        {
+          "title": "Mirror the customer cycle",
+          "text": "A bill for supplies already used debits Supplies Expense and credits AP. Pay Bills debits AP and credits Checking. Matching the withdrawal to the saved bill payment does not create another expense. If you instead Add the withdrawal as expense, the expense is duplicated and the bill remains open."
+        },
+        {
+          "title": "Bill Pay status matters",
+          "text": "Review vendor, bill, amount, due date, bank account and authorization. A scheduled bill payment may not yet have settled. Match the withdrawal only to the correct recorded payment; check dates and payment status if it is absent. A purchase paid immediately with no bill or existing expense can be recorded as an Expense. Buying equipment generally creates an asset, not automatically a supplies expense."
+        },
+        {
+          "title": "Active lab timing",
+          "text": "Take six active minutes tracing the vendor flow and comparing it with the customer flow. Spend twelve practice minutes building bill and payment entries, then explain why a balanced extra expense can still be wrong. Complete the seven-minute sandbox mission and three-minute check. Thirty minutes is an active-work target; use extra time for unfamiliar QBO screens."
+        }
+      ],
+      "diagram": {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Start",
+            "note": "Incremental balances for the supplier case.",
+            "balances": {
+              "Checking": 1000,
+              "AR": 0,
+              "UF": 0,
+              "Income": 0,
+              "AP": 0,
+              "Expense": 0
+            },
+            "entry": []
+          },
+          {
+            "label": "Bill",
+            "note": "Record $240 supplies used and owed.",
+            "balances": {
+              "Checking": 1000,
+              "AR": 0,
+              "UF": 0,
+              "Income": 0,
+              "AP": 240,
+              "Expense": 240
+            },
+            "entry": [
+              {
+                "account": "Supplies Expense",
+                "debit": 240,
+                "credit": 0
+              },
+              {
+                "account": "Accounts Payable",
+                "debit": 0,
+                "credit": 240
+              }
+            ]
+          },
+          {
+            "label": "Pay Bills",
+            "note": "Apply payment to the bill.",
+            "balances": {
+              "Checking": 760,
+              "AR": 0,
+              "UF": 0,
+              "Income": 0,
+              "AP": 0,
+              "Expense": 240
+            },
+            "entry": [
+              {
+                "account": "Accounts Payable",
+                "debit": 240,
+                "credit": 0
+              },
+              {
+                "account": "Checking",
+                "debit": 0,
+                "credit": 240
+              }
+            ]
+          },
+          {
+            "label": "Match",
+            "note": "Match downloaded withdrawal to the existing bill payment.",
+            "balances": {
+              "Checking": 760,
+              "AR": 0,
+              "UF": 0,
+              "Income": 0,
+              "AP": 0,
+              "Expense": 240
+            },
+            "entry": []
+          }
+        ],
+        "wrongSteps": [
+          {
+            "label": "Bill",
+            "note": "The cost is already recorded.",
+            "balances": {
+              "Checking": 1000,
+              "AR": 0,
+              "UF": 0,
+              "Income": 0,
+              "AP": 240,
+              "Expense": 240
+            },
+            "entry": [
+              {
+                "account": "Supplies Expense",
+                "debit": 240,
+                "credit": 0
+              },
+              {
+                "account": "Accounts Payable",
+                "debit": 0,
+                "credit": 240
+              }
+            ]
+          },
+          {
+            "label": "Add withdrawal as expense",
+            "note": "Bypass Pay Bills: expense repeats and AP stays open.",
+            "balances": {
+              "Checking": 760,
+              "AR": 0,
+              "UF": 0,
+              "Income": 0,
+              "AP": 240,
+              "Expense": 480
+            },
+            "entry": [
+              {
+                "account": "Supplies Expense",
+                "debit": 240,
+                "credit": 0
+              },
+              {
+                "account": "Checking",
+                "debit": 0,
+                "credit": 240
+              }
+            ]
+          }
+        ]
+      },
+      "practice": [
+        {
+          "id": "m5-bill",
+          "type": "journal",
+          "title": "Record Pine Supply bill",
+          "prompt": "Pine Supply invoices $240 for supplies used on current jobs.",
+          "skill": "Vendor Cycle",
+          "accounts": [
+            "Checking",
+            "Savings",
+            "Accounts Receivable",
+            "Undeposited Funds",
+            "Equipment",
+            "Accounts Payable",
+            "Loan Payable",
+            "Owner Equity",
+            "Owner Draw",
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense"
+          ],
+          "expected": [
+            {
+              "account": "Supplies Expense",
+              "debit": 240,
+              "credit": 0
+            },
+            {
+              "account": "Accounts Payable",
+              "debit": 0,
+              "credit": 240
+            }
+          ],
+          "explanation": "Accrual expense and vendor liability rise together."
+        },
+        {
+          "id": "m5-pay",
+          "type": "journal",
+          "title": "Pay the existing bill",
+          "prompt": "Pay the $240 bill from Checking using Pay Bills.",
+          "skill": "Vendor Cycle",
+          "accounts": [
+            "Checking",
+            "Savings",
+            "Accounts Receivable",
+            "Undeposited Funds",
+            "Equipment",
+            "Accounts Payable",
+            "Loan Payable",
+            "Owner Equity",
+            "Owner Draw",
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense"
+          ],
+          "expected": [
+            {
+              "account": "Accounts Payable",
+              "debit": 240,
+              "credit": 0
+            },
+            {
+              "account": "Checking",
+              "debit": 0,
+              "credit": 240
+            }
+          ],
+          "explanation": "AP decreases and Checking decreases. Expense is unchanged by the payment."
+        },
+        {
+          "id": "m5-duplicate",
+          "type": "choice",
+          "title": "Diagnose vendor shortcut",
+          "prompt": "A $240 bill exists, then its withdrawal is added as expense. What is wrong?",
+          "skill": "Vendor Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Expense +$240 too high and AP +$240 too high",
+              "explanation": "The cash movement exists once but the cost appears twice and the bill remains unpaid."
+            },
+            {
+              "id": "b",
+              "text": "Income +$240 too high",
+              "explanation": "This vendor mistake duplicates expense, not service income."
+            },
+            {
+              "id": "c",
+              "text": "Expense correct; AP reduced $240",
+              "explanation": "The added Expense does not apply a bill payment to AP, and repeats the expense already recorded with the bill."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The cash movement exists once but the cost appears twice and the bill remains unpaid."
+        }
+      ],
+      "mission": {
+        "id": "m5-mission",
+        "title": "Sandbox: The Vendor Side",
+        "steps": [
+          "Open the sandbox and note AP, Checking and Supplies Expense.",
+          "Use + New → Bill; create Lab Pine Supply and a $240 bill for supplies already used. Save.",
+          "Use + New → Pay Bills; select that exact bill and Checking. Use a sandbox manual payment; do not connect real bill pay or send money.",
+          "Search the saved bill and payment. Confirm the bill is paid and the payment reduces AP.",
+          "If a sandbox feed has its corresponding withdrawal, Find match to the saved bill payment. Otherwise name the payment you would choose. Compare accrual expense before and after payment."
+        ],
+        "checkpoint": {
+          "id": "m5-cp",
+          "type": "choice",
+          "title": "Bill payment checkpoint",
+          "prompt": "What changes when paying the $240 bill compared with just after creating it?",
+          "skill": "Vendor Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "AP −$240, Checking −$240, expense unchanged",
+              "explanation": "The payment settles the obligation whose expense is already recorded."
+            },
+            {
+              "id": "b",
+              "text": "AP unchanged; Checking −$240; expense +$240",
+              "explanation": "That repeats expense and never applies the withdrawal to the bill. Correct payment reduces AP without new expense."
+            },
+            {
+              "id": "c",
+              "text": "AP +$240; Checking +$240; expense unchanged",
+              "explanation": "Paying reduces the liability and cash. These increases describe the reverse of payment."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The payment settles the obligation whose expense is already recorded."
+        }
+      },
+      "check": [
+        {
+          "id": "m5-c1",
+          "type": "choice",
+          "title": "Earn versus settle",
+          "prompt": "When does accrual expense arise for supplies already used and billed?",
+          "skill": "Vendor Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "When recording the bill",
+              "explanation": "Paying later settles AP."
+            },
+            {
+              "id": "b",
+              "text": "When matching the withdrawal",
+              "explanation": "Matching links the bank download to an existing payment."
+            },
+            {
+              "id": "c",
+              "text": "When paying the bill through Pay Bills",
+              "explanation": "On accrual basis the used supplies’ expense is already recorded with the bill. Payment settles AP."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Paying later settles AP."
+        },
+        {
+          "id": "m5-c2",
+          "type": "choice",
+          "title": "Immediate purchase",
+          "prompt": "A $40 business fuel purchase has no bill or existing expense. What is appropriate?",
+          "skill": "Vendor Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Record one Expense to Fuel Expense",
+              "explanation": "A genuine unrecorded immediate purchase needs an expense entry."
+            },
+            {
+              "id": "b",
+              "text": "Create a bill and add the same withdrawal as expense",
+              "explanation": "That would record the same cost twice."
+            },
+            {
+              "id": "c",
+              "text": "Record a $40 reduction of Accounts Payable only",
+              "explanation": "There is no recorded bill to settle. The new fuel purchase needs an expense, not an invented AP reduction."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "A genuine unrecorded immediate purchase needs an expense entry."
+        },
+        {
+          "id": "m5-c3",
+          "type": "choice",
+          "title": "Scheduled payment",
+          "prompt": "A Bill Pay item is scheduled but no withdrawal has settled. What should you do?",
+          "skill": "Vendor Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Verify status and wait for the actual settlement to match",
+              "explanation": "Scheduled and cleared are different states; do not invent a second expense."
+            },
+            {
+              "id": "b",
+              "text": "Add another expense now",
+              "explanation": "That duplicates cost and does not establish settlement."
+            },
+            {
+              "id": "c",
+              "text": "Match the scheduled payment to any nearby withdrawal of the same amount",
+              "explanation": "A scheduled payment is not necessarily settled. Verify the actual withdrawal, payee and payment record first."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Scheduled and cleared are different states; do not invent a second expense."
+        }
+      ],
+      "video": {
+        "todo": "TODO: find clip for The Vendor Side"
+      }
+    },
+    {
+      "id": "m6",
+      "title": "Reconciliation",
+      "skill": "Reconciliation",
+      "badge": "Reconciler",
+      "minutes": 30,
+      "timeBudget": {
+        "hook": 2,
+        "learn": 6,
+        "practice": 12,
+        "mission": 7,
+        "check": 3
+      },
+      "hook": "The statement ends at $1,303, but the cleared ledger ends at $1,339. One repair amount has transposed digits. A $36 difference is a clue, not proof.",
+      "learn": [
+        {
+          "title": "What reconciliation proves",
+          "text": "Reconcile compares the statement’s opening and ending balances with the book transactions that actually cleared. It helps prove cash completeness and accuracy; it does not prove every income or expense category is correct. Confirm account, dates, opening balance and statement ending balance first. Clear deposits and withdrawals individually against the statement. Leave outstanding checks and deposits in transit unchecked."
+        },
+        {
+          "title": "Use differences as clues",
+          "text": "A difference equal to one transaction may mean an omitted or extra cleared item. A difference twice a transaction may indicate its sign was reversed. A difference divisible by nine may suggest transposed digits: $184 versus $148 differs by $36. None proves the cause. If the opening balance changed, inspect the reconciliation history and Audit Log for edited or deleted previously reconciled transactions. Do not plug a difference into income."
+        },
+        {
+          "title": "Active lab timing",
+          "text": "Take six active minutes comparing statement and ledger signs. Spend twelve practice minutes checking cleared items, correcting the transposition and testing the three numerical clues against source evidence. Complete the seven-minute sandbox mission and three-minute check. Thirty minutes is an active-work target; use extra time for unfamiliar QBO screens."
+        }
+      ],
+      "diagram": {
+        "type": "decision",
+        "steps": [
+          {
+            "title": "Establish the statement",
+            "text": "Confirm account, dates, opening, ending and any bank fees."
+          },
+          {
+            "title": "Trace clearances",
+            "text": "Check off actual statement items; leave outstanding book items unchecked."
+          },
+          {
+            "title": "Compare the difference",
+            "text": "Look for one missing amount, twice an amount, or a multiple of nine."
+          },
+          {
+            "title": "Verify source and history",
+            "text": "Correct the supported error; investigate changes to reconciled history before finishing."
+          }
+        ]
+      },
+      "practice": [
+        {
+          "id": "m6-reconcile",
+          "type": "reconcile",
+          "title": "Find the $36 transposition",
+          "prompt": "Statement: opening $1,000; deposit $500; fuel −$62; repair −$184; fee −$15; customer deposit $64. Ending $1,303. The books show repair −$148. A separate $90 check and $110 deposit have not cleared. Correct the repair and select the five cleared items.",
+          "skill": "Reconciliation",
+          "opening": 1000,
+          "ending": 1303,
+          "lines": [
+            {
+              "id": "m6-reconcile-1",
+              "label": "Customer deposit",
+              "amount": 500,
+              "correctAmount": 500,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $500.00."
+            },
+            {
+              "id": "m6-reconcile-2",
+              "label": "Fuel",
+              "amount": -62,
+              "correctAmount": -62,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-62.00."
+            },
+            {
+              "id": "m6-reconcile-3",
+              "label": "Repair (statement: −$184)",
+              "amount": -148,
+              "correctAmount": -184,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-184.00."
+            },
+            {
+              "id": "m6-reconcile-4",
+              "label": "Bank fee",
+              "amount": -15,
+              "correctAmount": -15,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-15.00."
+            },
+            {
+              "id": "m6-reconcile-5",
+              "label": "Small customer deposit",
+              "amount": 64,
+              "correctAmount": 64,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $64.00."
+            },
+            {
+              "id": "m6-reconcile-6",
+              "label": "Outstanding vendor check",
+              "amount": -90,
+              "correctAmount": -90,
+              "cleared": false,
+              "evidence": "Recorded in the books but absent from this statement; outstanding at month-end."
+            },
+            {
+              "id": "m6-reconcile-7",
+              "label": "Deposit in transit",
+              "amount": 110,
+              "correctAmount": 110,
+              "cleared": false,
+              "evidence": "Recorded in the books but absent from this statement; outstanding at month-end."
+            }
+          ],
+          "explanation": "Correct the supported ledger amount and select only items actually cleared on the statement. Opening plus signed cleared activity must equal ending. Outstanding items remain unchecked; never force a plug."
+        },
+        {
+          "id": "m6-clues",
+          "type": "choice",
+          "title": "Pair difference with investigation",
+          "prompt": "Select all valid investigation clues; none is a substitute for source evidence.",
+          "skill": "Reconciliation",
+          "options": [
+            {
+              "id": "a",
+              "text": "$36 difference: compare amounts for transposed digits",
+              "explanation": "36 is divisible by nine; inspect $184 versus $148."
+            },
+            {
+              "id": "b",
+              "text": "$50 difference: look for a missing $50 item",
+              "explanation": "A single-item omission can produce that difference."
+            },
+            {
+              "id": "c",
+              "text": "$100 difference: investigate a $50 sign reversal",
+              "explanation": "Changing +50 to −50 changes net by 100."
+            },
+            {
+              "id": "d",
+              "text": "Any difference: post a miscellaneous income plug",
+              "explanation": "A plug hides rather than diagnoses an error."
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c"
+          ],
+          "explanation": "36 is divisible by nine; inspect $184 versus $148.",
+          "multi": true
+        }
+      ],
+      "mission": {
+        "id": "m6-mission",
+        "title": "Sandbox: Reconciliation",
+        "steps": [
+          "Open your sandbox. Use search for Reconcile and choose a sandbox bank account; inspect the starting balance.",
+          "Review reconciliation history or a prior report. Compare its ending balance with the next opening balance.",
+          "Create a sandbox-only Checking-type bank account in Settings ⚙ → Chart of Accounts with no opening balance. Prepare a paper statement: opening $0, deposit $100, expense $25, ending $75.",
+          "Record those two transactions with + New → Bank Deposit and Expense in a sandbox-only account. Reconcile to the paper statement, checking exactly these two rows.",
+          "In the sandbox only, inspect how an outstanding extra $10 check would remain unchecked. Document the effect; do not change prior reconciled data."
+        ],
+        "checkpoint": {
+          "id": "m6-cp",
+          "type": "choice",
+          "title": "Outstanding checkpoint",
+          "prompt": "An extra $10 book check has not cleared your paper statement. How should it appear?",
+          "skill": "Reconciliation",
+          "options": [
+            {
+              "id": "a",
+              "text": "Unchecked; it does not change the statement ending balance",
+              "explanation": "The book balance can differ from statement balance because of outstanding items."
+            },
+            {
+              "id": "b",
+              "text": "Checked so book and bank totals look closer",
+              "explanation": "Clearance must follow the statement, not a desired total."
+            },
+            {
+              "id": "c",
+              "text": "Delete it because it is absent from the statement",
+              "explanation": "An outstanding valid check still belongs in the books. Leave it unchecked until the bank clears it."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The book balance can differ from statement balance because of outstanding items."
+        }
+      },
+      "check": [
+        {
+          "id": "m6-c1",
+          "type": "choice",
+          "title": "Divisible by nine",
+          "prompt": "A $36 difference appears. What next?",
+          "skill": "Reconciliation",
+          "options": [
+            {
+              "id": "a",
+              "text": "Look for transposed digits and verify against source documents",
+              "explanation": "A numerical pattern suggests a search; it does not prove the error."
+            },
+            {
+              "id": "b",
+              "text": "Automatically change any $36 item",
+              "explanation": "The difference may have another cause."
+            },
+            {
+              "id": "c",
+              "text": "Assume a $4 sign reversal because 36 is divisible by nine",
+              "explanation": "A $4 sign reversal makes an $8 difference, not $36. Investigate actual amounts and source evidence."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "A numerical pattern suggests a search; it does not prove the error."
+        },
+        {
+          "id": "m6-c2",
+          "type": "choice",
+          "title": "Twice an amount",
+          "prompt": "A $50 withdrawal is entered as a +$50 deposit. What is the signed net error?",
+          "skill": "Reconciliation",
+          "options": [
+            {
+              "id": "a",
+              "text": "Book cash is $100 too high",
+              "explanation": "The wrong +50 replaces correct −50; difference is +100."
+            },
+            {
+              "id": "b",
+              "text": "Book cash is $50 too high",
+              "explanation": "Sign reversal produces twice the amount."
+            },
+            {
+              "id": "c",
+              "text": "Book cash is $100 too low",
+              "explanation": "The wrong positive deposit replaces a negative withdrawal, making cash higher by $100, not lower."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The wrong +50 replaces correct −50; difference is +100."
+        },
+        {
+          "id": "m6-c3",
+          "type": "choice",
+          "title": "Opening changed",
+          "prompt": "Previously reconciled opening balance is now different. What should you inspect?",
+          "skill": "Reconciliation",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reconciliation history and Audit Log for changed prior entries",
+              "explanation": "Edited, deleted or un-reconciled transactions can disturb the opening."
+            },
+            {
+              "id": "b",
+              "text": "Current revenue only",
+              "explanation": "A historical opening discrepancy requires investigation of history."
+            },
+            {
+              "id": "c",
+              "text": "Only outstanding checks dated after this opening balance",
+              "explanation": "Current outstanding checks can explain ending differences, but cannot explain an altered previously reconciled opening."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Edited, deleted or un-reconciled transactions can disturb the opening."
+        }
+      ],
+      "video": {
+        "todo": "TODO: find clip for Reconciliation"
+      }
+    },
+    {
+      "id": "m7",
+      "title": "The Exceptions Lab",
+      "skill": "Exception Handling",
+      "badge": "Exception Handler",
+      "minutes": 30,
+      "timeBudget": {
+        "hook": 2,
+        "learn": 6,
+        "practice": 12,
+        "mission": 7,
+        "check": 3
+      },
+      "hook": "The queue is short, but every row has a hidden dependency. Diagnose the record, choose the repair, and explain what would have broken.",
+      "learn": [
+        {
+          "title": "Trace before repair",
+          "text": "Use the customer or vendor history, source documents, bank register and Audit Log. Identify the original invoice or bill, its payment and its deposit or withdrawal. Determine whether the bank download is linked. For current unreconciled mistakes, undo the incorrect categorization before removing a duplicate record and recreating the correct workflow. Verify balances after the repair."
+        },
+        {
+          "title": "Protect the period and the evidence",
+          "text": "Do not silently rewrite reconciled or closed-period records. Ask the supervisor to choose the correction date and method. Customer refunds, credits and returned checks need linked workflows so the customer balance agrees with reality. Void keeps a zero-dollar record for supported types; delete removes the normal record but leaves Audit Log history. Document the cause and preventive check for every exception."
+        },
+        {
+          "title": "Active lab timing",
+          "text": "Take six active minutes tracing linked records and Audit Log. Spend about one minute per exception during twelve practice minutes: state diagnosis, specific repair and economic effect before choosing an answer. Complete the seven-minute sandbox mission and three-minute check. Thirty minutes is an active-work target; use extra time for unfamiliar QBO screens."
+        }
+      ],
+      "diagram": {
+        "type": "decision",
+        "steps": [
+          {
+            "title": "Diagnose",
+            "text": "Identify the source event, linked records, actual bank movement and affected period."
+          },
+          {
+            "title": "Repair",
+            "text": "Correct the specific payment, deposit, application or duplicate; preserve legitimate records."
+          },
+          {
+            "title": "Prove the effect",
+            "text": "Compare cash, AR/AP, UF, income/expense and customer/vendor detail after repair."
+          },
+          {
+            "title": "Prevent recurrence",
+            "text": "Document the sync gap, matching check or review control that would have caught it."
+          }
+        ]
+      },
+      "practice": [
+        {
+          "id": "m7-uf",
+          "type": "choice",
+          "title": "Payments stuck in holding",
+          "prompt": "A $750 Bank Deposit exists, but its two $500/$250 payments still sit in UF. The deposit used a new income line.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Undo the wrong feed match if necessary; replace the erroneous deposit with one selecting the two existing UF payments, then rematch",
+              "explanation": "Correct cash remains $750. The wrong income line overstates revenue $750 and leaves UF overstated $750. Preserve the real bank deposit and review closed periods before changing it."
+            },
+            {
+              "id": "b",
+              "text": "Receive both payments a second time",
+              "explanation": "That would duplicate receipts and can create customer credits."
+            },
+            {
+              "id": "c",
+              "text": "Reclassify the two UF payments as additional Service Income",
+              "explanation": "The invoices already earned revenue and the payments already collected AR. Reclassification to income would perpetuate duplicated revenue rather than clear UF through the deposit."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Correct cash remains $750. The wrong income line overstates revenue $750 and leaves UF overstated $750. Preserve the real bank deposit and review closed periods before changing it."
+        },
+        {
+          "id": "m7-bypass",
+          "type": "choice",
+          "title": "Deposit bypassed the invoice",
+          "prompt": "A $500 ACH was added to income while its $500 invoice remains open; no payment exists.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Undo the wrong Add, remove its unreconciled duplicate-income deposit, Receive Payment against the invoice to Checking, then Match",
+              "explanation": "Repair reduces overstated income $500 and clears overstated AR $500; the real $500 Checking receipt remains once."
+            },
+            {
+              "id": "b",
+              "text": "Write off the unpaid invoice as bad debt",
+              "explanation": "The customer paid. A bad-debt write-off hides the wrong collection workflow."
+            },
+            {
+              "id": "c",
+              "text": "Receive a second payment but keep the wrong income deposit",
+              "explanation": "Keeping both cash records duplicates Checking, while the original income error remains. Remove the erroneous added record before recording the proper workflow."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Repair reduces overstated income $500 and clears overstated AR $500; the real $500 Checking receipt remains once."
+        },
+        {
+          "id": "m7-unmatched",
+          "type": "choice",
+          "title": "No suggested match",
+          "prompt": "A real $320 receipt has no suggested match, but a saved payment exists with a nearby date.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Use Find match, widen the date range, verify customer/amount/account, then match the existing payment",
+              "explanation": "Missing suggestions are not missing bookkeeping. Adding again would overstate cash and may duplicate income or customer credit $320."
+            },
+            {
+              "id": "b",
+              "text": "Exclude because the suggestion is missing",
+              "explanation": "That leaves real bank activity unresolved."
+            },
+            {
+              "id": "c",
+              "text": "Add another $320 deposit and keep the saved payment",
+              "explanation": "That records the same bank receipt twice. Locate and match the existing payment instead."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Missing suggestions are not missing bookkeeping. Adding again would overstate cash and may duplicate income or customer credit $320."
+        },
+        {
+          "id": "m7-wronginvoice",
+          "type": "choice",
+          "title": "Payment on the wrong invoice",
+          "prompt": "Oak Court’s $500 payment settled invoice OC-2, but remittance names OC-1. Both belong to Oak Court.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Edit the existing payment application: uncheck OC-2 and apply OC-1; verify both remaining balances",
+              "explanation": "Cash, total AR and income stay unchanged. Invoice-level aging and collection status were wrong $500."
+            },
+            {
+              "id": "b",
+              "text": "Create another $500 payment for OC-1",
+              "explanation": "That overstates cash and reduces total AR a second time."
+            },
+            {
+              "id": "c",
+              "text": "Issue a $500 credit memo to OC-1 and leave the payment on OC-2",
+              "explanation": "The customer paid OC-1; a credit memo changes revenue/AR instead of correcting the payment allocation."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cash, total AR and income stay unchanged. Invoice-level aging and collection status were wrong $500."
+        },
+        {
+          "id": "m7-overpay",
+          "type": "choice",
+          "title": "Overpayment and credit",
+          "prompt": "Customer pays $550 against a $500 invoice. No other sale exists.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Receive the $550, apply $500, and retain the $50 customer credit or refund it with the correct linked workflow",
+              "explanation": "Cash increases $550; invoice AR clears $500. Remaining $50 is a customer credit, not $50 of extra earned revenue. Review unapplied-payment reporting, especially cash-basis reports."
+            },
+            {
+              "id": "b",
+              "text": "Add the extra $50 to Service Income",
+              "explanation": "There is no earned sale supporting that revenue."
+            },
+            {
+              "id": "c",
+              "text": "Record only $500 received and ignore the remaining $50",
+              "explanation": "Checking received $550. Recording only $500 understates cash and omits the customer’s $50 credit."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cash increases $550; invoice AR clears $500. Remaining $50 is a customer credit, not $50 of extra earned revenue. Review unapplied-payment reporting, especially cash-basis reports."
+        },
+        {
+          "id": "m7-duplicate",
+          "type": "choice",
+          "title": "Two expenses for one payment",
+          "prompt": "A $240 paid bill and a second added $240 expense represent one withdrawal. Neither is reconciled.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Verify the bill payment, undo the erroneous feed Add, remove the duplicate expense and match the bill payment",
+              "explanation": "The duplicate overstates expense $240 and understates book cash $240. Removing it preserves the paid bill and correct cash."
+            },
+            {
+              "id": "b",
+              "text": "Delete the legitimate bill payment",
+              "explanation": "That reopens AP and preserves the wrong expense."
+            },
+            {
+              "id": "c",
+              "text": "Keep both ledger entries but exclude the downloaded withdrawal",
+              "explanation": "Excluding a bank download does not remove the duplicate ledger expense or repair understated book cash."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The duplicate overstates expense $240 and understates book cash $240. Removing it preserves the paid bill and correct cash."
+        },
+        {
+          "id": "m7-difference",
+          "type": "choice",
+          "title": "Reconciliation difference",
+          "prompt": "Statement repair is −$184; ledger shows −$148. Difference is $36.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Verify the receipt and statement, correct the repair to −$184, then clear it",
+              "explanation": "The ledger currently overstates cash $36 and understates expense $36. Nine-divisibility is a clue corroborated by source evidence."
+            },
+            {
+              "id": "b",
+              "text": "Post a $36 income adjustment",
+              "explanation": "A plug conceals the transaction error and misstates revenue."
+            },
+            {
+              "id": "c",
+              "text": "Uncheck the repair and finish without recording its cleared amount",
+              "explanation": "The repair really cleared. Omitting it does not correct the ledger’s $36 amount error or represent the statement."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The ledger currently overstates cash $36 and understates expense $36. Nine-divisibility is a clue corroborated by source evidence."
+        },
+        {
+          "id": "m7-refund",
+          "type": "choice",
+          "title": "Customer refund",
+          "prompt": "Customer has a verified $50 overpayment credit and receives a $50 refund.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Record a $50 Expense or Check to the customer using Accounts Receivable, then use Receive Payment to link that refund to the existing overpayment credit",
+              "explanation": "The form reduces Checking and removes the existing customer credit through AR. Linking clears the customer balance; it creates no supplies expense and no second reversal of earned revenue."
+            },
+            {
+              "id": "b",
+              "text": "Add $50 Supplies Expense",
+              "explanation": "The refund is settlement of a customer credit, not supplies consumed."
+            },
+            {
+              "id": "c",
+              "text": "Record another $50 credit memo without recording the bank refund",
+              "explanation": "A new credit increases what the customer can claim and omits the outgoing cash. The refund must settle the existing credit."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The form reduces Checking and removes the existing customer credit through AR. Linking clears the customer balance; it creates no supplies expense and no second reversal of earned revenue."
+        },
+        {
+          "id": "m7-nsf",
+          "type": "choice",
+          "title": "Bounced check",
+          "prompt": "A $400 payment already cleared an invoice, but the bank returned the check and charged a $15 fee.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Record the returned $400 withdrawal to Accounts Receivable for that customer; reapply the original payment from its invoice to the returned-payment entry; separately record the $15 Bank Fees",
+              "explanation": "Reapplying opens the original invoice. Checking decreases $415, AR is restored $400, and bank fee expense rises $15. The earned $400 service income remains. Do not delete the original bank deposit."
+            },
+            {
+              "id": "b",
+              "text": "Delete the invoice and exclude the withdrawal",
+              "explanation": "The work is still earned and the real bank withdrawal needs recording."
+            },
+            {
+              "id": "c",
+              "text": "Reduce Service Income $415 and leave the customer invoice paid",
+              "explanation": "The $400 work remains earned and the customer owes it again. Only the separate $15 bank charge is fee expense."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Reapplying opens the original invoice. Checking decreases $415, AR is restored $400, and bank fee expense rises $15. The earned $400 service income remains. Do not delete the original bank deposit."
+        },
+        {
+          "id": "m7-voiddelete",
+          "type": "choice",
+          "title": "Void versus delete",
+          "prompt": "A duplicate unreconciled invoice was never valid. A separate unused check number should remain traceable.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "After checking links and history, delete the duplicate invoice; void the unused check where supported to preserve its zero-dollar record",
+              "explanation": "Deletion removes the transaction from normal records but remains in Audit Log. Void keeps a zero-dollar trace. Both change totals; neither is a safe shortcut for reconciled or closed-period entries. Some QBO types cannot be voided."
+            },
+            {
+              "id": "b",
+              "text": "Delete every record, including reconciled checks",
+              "explanation": "Historical changes can break prior reconciliation and remove the normal visible trace."
+            },
+            {
+              "id": "c",
+              "text": "Void the duplicate invoice and delete the unused check number",
+              "explanation": "Voiding can remove invoice totals, but deleting the check loses its normal visible number trace. The stated goal is to remove the accidental duplicate and preserve the unused check record."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Deletion removes the transaction from normal records but remains in Audit Log. Void keeps a zero-dollar trace. Both change totals; neither is a safe shortcut for reconciled or closed-period entries. Some QBO types cannot be voided."
+        }
+      ],
+      "mission": {
+        "id": "m7-mission",
+        "title": "Sandbox: The Exceptions Lab",
+        "steps": [
+          "Open the sandbox. Create a new Lab Exceptions customer and two $100 invoices for different dates.",
+          "Receive one $100 payment against the second invoice; then use the remittance assumption that it belongs to the first. Edit that same payment application to the first.",
+          "Inspect both invoices and the customer balance. Confirm total cash and AR did not change from moving the application.",
+          "Create a separate duplicate $25 sandbox invoice, inspect its links and use Delete only after confirming it is unreconciled and unnecessary. Find the action in Audit Log.",
+          "Inspect a supported sandbox transaction’s Void option without changing prior reconciled records. Explain how a zero-dollar record differs from deletion."
+        ],
+        "checkpoint": {
+          "id": "m7-cp",
+          "type": "choice",
+          "title": "Application checkpoint",
+          "prompt": "Moving one existing $100 payment between two invoices for the same customer changes what?",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Which invoice is open; total cash and total AR stay the same",
+              "explanation": "The same collection is reallocated within the customer account."
+            },
+            {
+              "id": "b",
+              "text": "Cash increases $100",
+              "explanation": "Editing application does not create another collection."
+            },
+            {
+              "id": "c",
+              "text": "Total AR decreases another $100; cash is unchanged",
+              "explanation": "The same payment was already counted against total AR. Reapplying it changes invoice detail, not total AR."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The same collection is reallocated within the customer account."
+        }
+      },
+      "check": [
+        {
+          "id": "m7-c1",
+          "type": "choice",
+          "title": "Overpayment",
+          "prompt": "A customer paid $50 more than invoiced. Is that automatically revenue?",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "No: retain or refund a customer credit",
+              "explanation": "No additional earned work supports extra revenue."
+            },
+            {
+              "id": "b",
+              "text": "Yes: any deposit is revenue",
+              "explanation": "Cash receipt and revenue recognition are different events."
+            },
+            {
+              "id": "c",
+              "text": "Yes, if the invoice becomes fully paid",
+              "explanation": "Settling the invoice establishes that its $500 is paid; it does not turn an unrelated extra $50 into earned revenue."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "No additional earned work supports extra revenue."
+        },
+        {
+          "id": "m7-c2",
+          "type": "choice",
+          "title": "Returned check",
+          "prompt": "A collected $400 invoice payment bounces. What must be restored?",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Customer amount due $400, with the bank reversal recorded",
+              "explanation": "The customer still owes for earned services; a separate bank fee is expense."
+            },
+            {
+              "id": "b",
+              "text": "Service income must be erased",
+              "explanation": "Collection failure does not erase earned work."
+            },
+            {
+              "id": "c",
+              "text": "Only the $15 fee; the invoice should stay paid",
+              "explanation": "The bank took back the $400 collection too. Restore the customer amount due and record both bank movements."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The customer still owes for earned services; a separate bank fee is expense."
+        },
+        {
+          "id": "m7-c3",
+          "type": "choice",
+          "title": "History",
+          "prompt": "Does deleting a QBO transaction erase all evidence of it?",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "No: deletion remains visible in Audit Log",
+              "explanation": "Normal records and totals change, but the audit trail retains the action."
+            },
+            {
+              "id": "b",
+              "text": "Yes: delete erases its audit history",
+              "explanation": "QBO retains deleted transaction history in Audit Log."
+            },
+            {
+              "id": "c",
+              "text": "No: the deleted transaction still contributes to report totals",
+              "explanation": "Deletion retains an Audit Log trace but removes the transaction from normal financial totals."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Normal records and totals change, but the audit trail retains the action."
+        }
+      ],
+      "video": {
+        "todo": "TODO: find clip for The Exceptions Lab"
+      }
+    },
+    {
+      "id": "m8",
+      "title": "Month-End Capstone",
+      "skill": "Bank Feed Decisions",
+      "badge": "Month-End Ready",
+      "minutes": 30,
+      "timeBudget": {
+        "hook": 2,
+        "learn": 5,
+        "practice": 15,
+        "mission": 5,
+        "check": 3
+      },
+      "hook": "September begins with $5,000 in Checking and ends at $11,860. Process 30 imported rows, repair six exceptions, and prove the statement without a plug.",
+      "learn": [
+        {
+          "title": "Your evidence packet",
+          "text": "Opening statement balance is $5,000. The bank has 29 actual September transactions plus one duplicate import in the feed. Open invoices, paid bills and existing ledger references are listed with the rows. Six exceptions E1–E6 affect collection workflow, UF, duplicate expense, invoice application, customer credit and repair amount. Spruce Lane’s $600 invoice remains unpaid; do not invent a receipt."
+        },
+        {
+          "title": "Three passes, one proof",
+          "text": "First process every feed row with its source evidence and exact match. Second select all six supported repairs, explaining their dollar effects. Third reconcile the statement using corrected amounts. A $90 vendor check and a $110 deposit are outstanding at month-end and must remain unchecked. The repair row begins with the incorrect ledger amount; use its source evidence to correct it. A balanced reconcile does not by itself prove invoice applications or customer credits are correct."
+        },
+        {
+          "title": "Active lab timing",
+          "text": "Take five active minutes reading the evidence packet and planning three passes. Spend fifteen practice minutes on the thirty-row queue, six repairs and reconciliation; pause to trace dependencies instead of guessing from the amount. Complete the five-minute sandbox handoff and three-minute check. Thirty minutes is an active-work target; use extra time for unfamiliar QBO screens."
+        }
+      ],
+      "diagram": {
+        "type": "decision",
+        "steps": [
+          {
+            "title": "Feed pass",
+            "text": "Check each source, repair dependencies, receive the missing invoice payment and choose exact matches."
+          },
+          {
+            "title": "Exception pass",
+            "text": "Catch all six cases and compare cash, AR, UF, income, expense and customer detail."
+          },
+          {
+            "title": "Statement pass",
+            "text": "Clear the 29 genuine statement rows: signed net $6,860; opening $5,000; ending $11,860."
+          },
+          {
+            "title": "Report",
+            "text": "Review accuracy, exceptions caught and dollar risk; retry missed decisions before handing off."
+          }
+        ]
+      },
+      "practice": [
+        {
+          "id": "m8-feed",
+          "type": "feed",
+          "title": "September bank queue",
+          "prompt": "Work all 30 rows. Evidence explains existing ledger records and repairs. Positive receipts are not automatically sales. The last row is a duplicate download, not another statement deposit.",
+          "skill": "Bank Feed Decisions",
+          "lines": [
+            {
+              "id": "m8-line-1",
+              "date": "2026-09-02",
+              "description": "Oak Court ACH",
+              "amount": 500,
+              "context": "Exception E1: invoice OC-500 for $500 is open; no CRM payment or sale duplication. Bank confirms $500 ACH. Receive Payment to Checking, apply OC-500, then find the new payment.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "requiresPayment": true,
+              "invoiceId": "cap-oc500",
+              "matchId": "capmatch-1"
+            },
+            {
+              "id": "m8-line-2",
+              "date": "2026-09-03",
+              "description": "Grouped checks: Maple + Elm",
+              "amount": 750,
+              "context": "Exception E2: payments MAP-500 and ELM-250 already in UF. DEP-750 incorrectly credits income rather than UF. Undo link, replace unreconciled DEP-750 selecting both payments, then match the repaired deposit.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-2"
+            },
+            {
+              "id": "m8-line-3",
+              "date": "2026-09-04",
+              "description": "Pine Supply paid bill",
+              "amount": -240,
+              "context": "Exception E3: bill PS-240 and payment BP-240 are legitimate; separate expense EXP-DUP-240 repeats the withdrawal. Remove only the duplicate unreconciled expense; match BP-240.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-3"
+            },
+            {
+              "id": "m8-line-4",
+              "date": "2026-09-05",
+              "description": "Birch Lane ACH",
+              "amount": 320,
+              "context": "Exception E4: payment BL-P320 is recorded in Checking but applied to BL-2; remittance names BL-1. Reapply the existing payment, then match it. Both invoices belong to Birch Lane.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-4"
+            },
+            {
+              "id": "m8-line-5",
+              "date": "2026-09-06",
+              "description": "Clover Court overpayment",
+              "amount": 550,
+              "context": "Exception E5: invoice CC-500 is $500. Payment CC-P550 is already recorded in Checking for $550: $500 applied, $50 unapplied customer credit. Match the full payment; retain credit unless instructed to refund.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-5"
+            },
+            {
+              "id": "m8-line-6",
+              "date": "2026-09-07",
+              "description": "Repair shop settled",
+              "amount": -184,
+              "context": "Exception E6: receipt and statement say $184. EXP-REPAIR in Checking is mistakenly −$148. Correct that expense to −$184 before matching; same record, not a second expense.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-6"
+            },
+            {
+              "id": "m8-line-7",
+              "date": "2026-09-08",
+              "description": "Lawn service walk-in",
+              "amount": 85,
+              "context": "Receipt W85: earned work paid today, no invoice, sales receipt or other sale recorded.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Service Income"
+            },
+            {
+              "id": "m8-line-8",
+              "date": "2026-09-09",
+              "description": "Fuel receipt F62",
+              "amount": -62,
+              "context": "Verified business fuel receipt F62; no existing expense or bill.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Fuel Expense"
+            },
+            {
+              "id": "m8-line-9",
+              "date": "2026-09-10",
+              "description": "Checking to Savings",
+              "amount": -1000,
+              "context": "Bank transfer to Cedar Grove Savings; neither side recorded.",
+              "action": "Transfer",
+              "explanation": "This unrecorded movement is between Cedar Grove bank accounts, not profit."
+            },
+            {
+              "id": "m8-line-10",
+              "date": "2026-09-11",
+              "description": "Bank monthly fee",
+              "amount": -15,
+              "context": "Statement fee not recorded elsewhere.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Bank Fees"
+            },
+            {
+              "id": "m8-line-11",
+              "date": "2026-09-12",
+              "description": "Owner capital contribution",
+              "amount": 1500,
+              "context": "Verified owner investment; no existing record.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Owner Equity"
+            },
+            {
+              "id": "m8-line-12",
+              "date": "2026-09-13",
+              "description": "Loan proceeds",
+              "amount": 2000,
+              "context": "Signed loan agreement; proceeds unrecorded.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Loan Payable"
+            },
+            {
+              "id": "m8-line-13",
+              "date": "2026-09-14",
+              "description": "Stone Path ACH",
+              "amount": 680,
+              "context": "Invoice ST-680 paid; payment ST-P680 deposited directly to Checking already.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-13"
+            },
+            {
+              "id": "m8-line-14",
+              "date": "2026-09-15",
+              "description": "Fuel receipt F78",
+              "amount": -78,
+              "context": "Verified business fuel receipt; no bill or expense record exists.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Fuel Expense"
+            },
+            {
+              "id": "m8-line-15",
+              "date": "2026-09-16",
+              "description": "Sprinkler supplies",
+              "amount": -95,
+              "context": "Supplies used this month, receipt verified; no bill or expense already recorded.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Supplies Expense"
+            },
+            {
+              "id": "m8-line-16",
+              "date": "2026-09-17",
+              "description": "Aspen Ridge deposit",
+              "amount": 425,
+              "context": "Bank Deposit DEP-A425 already selects the held customer check payment.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-16"
+            },
+            {
+              "id": "m8-line-17",
+              "date": "2026-09-18",
+              "description": "Vendor bill payment",
+              "amount": -360,
+              "context": "Bill VP-360 recorded expense and bill payment VBP-360 is in Checking.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-17"
+            },
+            {
+              "id": "m8-line-18",
+              "date": "2026-09-19",
+              "description": "Liability insurance",
+              "amount": -125,
+              "context": "Current month insurance premium, no existing record.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Insurance Expense"
+            },
+            {
+              "id": "m8-line-19",
+              "date": "2026-09-20",
+              "description": "Juniper Court ACH",
+              "amount": 900,
+              "context": "Payment JUN-P900 exists in Checking and is applied to invoice JUN-900.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-19"
+            },
+            {
+              "id": "m8-line-20",
+              "date": "2026-09-21",
+              "description": "Same-day leaf cleanup",
+              "amount": 140,
+              "context": "Earned service receipt LC140; no invoice or recorded sale exists.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Service Income"
+            },
+            {
+              "id": "m8-line-21",
+              "date": "2026-09-22",
+              "description": "Savings to Checking",
+              "amount": 400,
+              "context": "Transfer from Cedar Grove Savings not yet recorded on either side.",
+              "action": "Transfer",
+              "explanation": "This unrecorded movement is between Cedar Grove bank accounts, not profit."
+            },
+            {
+              "id": "m8-line-22",
+              "date": "2026-09-23",
+              "description": "Fuel receipt F54",
+              "amount": -54,
+              "context": "Verified business fuel expense not recorded elsewhere.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Fuel Expense"
+            },
+            {
+              "id": "m8-line-23",
+              "date": "2026-09-24",
+              "description": "Mower repair",
+              "amount": -210,
+              "context": "Expense REP-210 already recorded in Checking from repair receipt.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-23"
+            },
+            {
+              "id": "m8-line-24",
+              "date": "2026-09-25",
+              "description": "Willow ACH",
+              "amount": 275,
+              "context": "Existing direct-to-Checking received payment WILL-P275.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-24"
+            },
+            {
+              "id": "m8-line-25",
+              "date": "2026-09-26",
+              "description": "Supplies vendor bill pay",
+              "amount": -180,
+              "context": "Paid bill and its saved payment SV-BP180 both verified.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-25"
+            },
+            {
+              "id": "m8-line-26",
+              "date": "2026-09-27",
+              "description": "Cash hedge service",
+              "amount": 60,
+              "context": "Earned cash sale HS60; no invoice, sales receipt or other recorded sale.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Service Income"
+            },
+            {
+              "id": "m8-line-27",
+              "date": "2026-09-28",
+              "description": "Owner investment top-up",
+              "amount": 500,
+              "context": "Additional owner capital, not customer revenue, no record yet.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Owner Equity"
+            },
+            {
+              "id": "m8-line-28",
+              "date": "2026-09-01",
+              "description": "Oak Terrace ACH",
+              "amount": 450,
+              "context": "Existing payment OT-P450 applied to OT-450 and deposited directly to Checking.",
+              "action": "Match",
+              "explanation": "Link to the stated existing or properly repaired ledger record; do not create a second economic event.",
+              "matchId": "capmatch-28"
+            },
+            {
+              "id": "m8-line-29",
+              "date": "2026-09-02",
+              "description": "Fuel receipt F72",
+              "amount": -72,
+              "context": "Verified unrecorded business fuel receipt.",
+              "action": "Add",
+              "explanation": "Source evidence confirms this event is genuinely unrecorded; create one entry in the stated category.",
+              "category": "Fuel Expense"
+            },
+            {
+              "id": "m8-line-30",
+              "date": "2026-09-03",
+              "description": "Repeated grouped-check import",
+              "amount": 750,
+              "context": "Duplicate download of line 2. Statement has exactly one $750 grouped deposit. Original DEP-750 must remain.",
+              "action": "Exclude",
+              "explanation": "This is a duplicate import of a real statement row; exclude the surplus download only."
+            }
+          ],
+          "matches": [
+            {
+              "id": "capmatch-1",
+              "label": "Oak Court ACH: verified ledger record",
+              "amount": 500
+            },
+            {
+              "id": "capmatch-2",
+              "label": "Grouped checks: Maple + Elm: verified ledger record",
+              "amount": 750
+            },
+            {
+              "id": "capmatch-3",
+              "label": "Pine Supply paid bill: verified ledger record",
+              "amount": -240
+            },
+            {
+              "id": "capmatch-4",
+              "label": "Birch Lane ACH: verified ledger record",
+              "amount": 320
+            },
+            {
+              "id": "capmatch-5",
+              "label": "Clover Court overpayment: verified ledger record",
+              "amount": 550
+            },
+            {
+              "id": "capmatch-6",
+              "label": "Repair shop settled: verified ledger record",
+              "amount": -184
+            },
+            {
+              "id": "capmatch-13",
+              "label": "Stone Path ACH: verified ledger record",
+              "amount": 680
+            },
+            {
+              "id": "capmatch-16",
+              "label": "Aspen Ridge deposit: verified ledger record",
+              "amount": 425
+            },
+            {
+              "id": "capmatch-17",
+              "label": "Vendor bill payment: verified ledger record",
+              "amount": -360
+            },
+            {
+              "id": "capmatch-19",
+              "label": "Juniper Court ACH: verified ledger record",
+              "amount": 900
+            },
+            {
+              "id": "capmatch-23",
+              "label": "Mower repair: verified ledger record",
+              "amount": -210
+            },
+            {
+              "id": "capmatch-24",
+              "label": "Willow ACH: verified ledger record",
+              "amount": 275
+            },
+            {
+              "id": "capmatch-25",
+              "label": "Supplies vendor bill pay: verified ledger record",
+              "amount": -180
+            },
+            {
+              "id": "capmatch-28",
+              "label": "Oak Terrace ACH: verified ledger record",
+              "amount": 450
+            }
+          ],
+          "invoices": [
+            {
+              "id": "cap-oc500",
+              "customer": "Oak Court",
+              "amount": 500,
+              "status": "Open $500; ACH confirmed but payment is missing. Receive Payment and apply this invoice."
+            },
+            {
+              "id": "cap-bl1",
+              "customer": "Birch Lane: BL-1, correct application target",
+              "amount": 320,
+              "status": "Open $320; remittance identifies this invoice as the payment’s correct target."
+            },
+            {
+              "id": "cap-bl2",
+              "customer": "Birch Lane: BL-2, incorrectly marked paid",
+              "amount": 320,
+              "status": "Incorrectly marked paid by BL-P320; reopen when the same payment is reapplied to BL-1."
+            },
+            {
+              "id": "cap-cc500",
+              "customer": "Clover Court: $550 received, $50 credit",
+              "amount": 500,
+              "status": "Settled $500 by CC-P550; $50 remains an unapplied customer credit."
+            },
+            {
+              "id": "cap-unpaid",
+              "customer": "Spruce Lane: no payment this month",
+              "amount": 600,
+              "status": "Open $600; no September payment or bank receipt."
+            }
+          ],
+          "categories": [
+            "Service Income",
+            "Supplies Expense",
+            "Fuel Expense",
+            "Bank Fees",
+            "Repairs Expense",
+            "Insurance Expense",
+            "Owner Equity",
+            "Loan Payable"
+          ],
+          "explanation": "Search for an existing record and verify customer, amount and date before posting. Missing invoice payments must be recorded against AR before matching. Add creates a new record; Exclude only removes a download from review."
+        },
+        {
+          "id": "m8-exceptions",
+          "type": "choice",
+          "title": "Repair six linked exceptions",
+          "prompt": "Using the feed evidence, open invoices and existing ledger records, select all six correct repairs. Each selection addresses one distinct exception E1–E6. Reject the two shortcuts.",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "Receive Payment against OC-500 to Checking, then match the new payment",
+              "explanation": "The invoice already earned revenue. Apply the actual $500 collection to AR, not income."
+            },
+            {
+              "id": "b",
+              "text": "Replace incorrect DEP-750 with a deposit selecting MAP-500 and ELM-250 from UF, then match",
+              "explanation": "The existing payments prove collection. Linking them in Bank Deposit clears UF without new income."
+            },
+            {
+              "id": "c",
+              "text": "Remove the duplicate EXP-DUP-240, preserve BP-240, then match BP-240",
+              "explanation": "One bank withdrawal belongs to one legitimate bill payment. The duplicate expense creates an extra book withdrawal."
+            },
+            {
+              "id": "d",
+              "text": "Reapply BL-P320 from BL-2 to BL-1, then match the same payment",
+              "explanation": "Moving the existing receipt changes which invoice is paid without changing total cash or total AR."
+            },
+            {
+              "id": "e",
+              "text": "Match CC-P550 and retain the $50 customer credit; do not add extra revenue",
+              "explanation": "The $550 payment clears a $500 invoice and leaves a $50 customer credit, not a second sale."
+            },
+            {
+              "id": "f",
+              "text": "Correct EXP-REPAIR from −$148 to −$184, then clear/match that existing record",
+              "explanation": "The $36 multiple-of-nine clue is confirmed by the $184 source receipt and statement."
+            },
+            {
+              "id": "g",
+              "text": "Add all positive bank rows to Service Income",
+              "explanation": "Invoices, transfers, owner investments and loans are not new earned cash sales."
+            },
+            {
+              "id": "h",
+              "text": "Exclude unresolved rows to make reconciliation finish",
+              "explanation": "Real bank movements need a recorded and supported workflow; exclusion hides unresolved activity."
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f"
+          ],
+          "explanation": "Six repairs protect different balances: receive the missing $500 against AR without repeating income; select $750 of existing UF payments so UF and duplicate income clear; remove the $240 duplicate expense to restore cash and profit; reapply $320 to the correct invoice without changing total cash or AR; retain the $50 customer credit rather than earn new revenue; correct the repair by $36, reducing cash and increasing expense. Matching links the verified records; excluding real activity fixes none of these ledger errors.",
+          "multi": true
+        },
+        {
+          "id": "m8-reconcile",
+          "type": "reconcile",
+          "title": "Close the statement",
+          "prompt": "Statement opening $5,000; ending $11,860. Every original feed row except the duplicate import appears on the statement at its signed feed amount. Correct the repair from −$148 to statement −$184. The two separately labeled outstanding items are absent from the statement. Select the cleared items only.",
+          "skill": "Reconciliation",
+          "opening": 5000,
+          "ending": 11860,
+          "lines": [
+            {
+              "id": "m8-reconcile-1",
+              "label": "Oak Court ACH",
+              "amount": 500,
+              "correctAmount": 500,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $500.00."
+            },
+            {
+              "id": "m8-reconcile-2",
+              "label": "Grouped checks: Maple + Elm",
+              "amount": 750,
+              "correctAmount": 750,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $750.00."
+            },
+            {
+              "id": "m8-reconcile-3",
+              "label": "Pine Supply paid bill",
+              "amount": -240,
+              "correctAmount": -240,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-240.00."
+            },
+            {
+              "id": "m8-reconcile-4",
+              "label": "Birch Lane ACH",
+              "amount": 320,
+              "correctAmount": 320,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $320.00."
+            },
+            {
+              "id": "m8-reconcile-5",
+              "label": "Clover Court overpayment",
+              "amount": 550,
+              "correctAmount": 550,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $550.00."
+            },
+            {
+              "id": "m8-reconcile-6",
+              "label": "Repair shop settled",
+              "amount": -148,
+              "correctAmount": -184,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-184.00."
+            },
+            {
+              "id": "m8-reconcile-7",
+              "label": "Lawn service walk-in",
+              "amount": 85,
+              "correctAmount": 85,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $85.00."
+            },
+            {
+              "id": "m8-reconcile-8",
+              "label": "Fuel receipt F62",
+              "amount": -62,
+              "correctAmount": -62,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-62.00."
+            },
+            {
+              "id": "m8-reconcile-9",
+              "label": "Checking to Savings",
+              "amount": -1000,
+              "correctAmount": -1000,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-1,000.00."
+            },
+            {
+              "id": "m8-reconcile-10",
+              "label": "Bank monthly fee",
+              "amount": -15,
+              "correctAmount": -15,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-15.00."
+            },
+            {
+              "id": "m8-reconcile-11",
+              "label": "Owner capital contribution",
+              "amount": 1500,
+              "correctAmount": 1500,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $1,500.00."
+            },
+            {
+              "id": "m8-reconcile-12",
+              "label": "Loan proceeds",
+              "amount": 2000,
+              "correctAmount": 2000,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $2,000.00."
+            },
+            {
+              "id": "m8-reconcile-13",
+              "label": "Stone Path ACH",
+              "amount": 680,
+              "correctAmount": 680,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $680.00."
+            },
+            {
+              "id": "m8-reconcile-14",
+              "label": "Fuel receipt F78",
+              "amount": -78,
+              "correctAmount": -78,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-78.00."
+            },
+            {
+              "id": "m8-reconcile-15",
+              "label": "Sprinkler supplies",
+              "amount": -95,
+              "correctAmount": -95,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-95.00."
+            },
+            {
+              "id": "m8-reconcile-16",
+              "label": "Aspen Ridge deposit",
+              "amount": 425,
+              "correctAmount": 425,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $425.00."
+            },
+            {
+              "id": "m8-reconcile-17",
+              "label": "Vendor bill payment",
+              "amount": -360,
+              "correctAmount": -360,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-360.00."
+            },
+            {
+              "id": "m8-reconcile-18",
+              "label": "Liability insurance",
+              "amount": -125,
+              "correctAmount": -125,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-125.00."
+            },
+            {
+              "id": "m8-reconcile-19",
+              "label": "Juniper Court ACH",
+              "amount": 900,
+              "correctAmount": 900,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $900.00."
+            },
+            {
+              "id": "m8-reconcile-20",
+              "label": "Same-day leaf cleanup",
+              "amount": 140,
+              "correctAmount": 140,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $140.00."
+            },
+            {
+              "id": "m8-reconcile-21",
+              "label": "Savings to Checking",
+              "amount": 400,
+              "correctAmount": 400,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $400.00."
+            },
+            {
+              "id": "m8-reconcile-22",
+              "label": "Fuel receipt F54",
+              "amount": -54,
+              "correctAmount": -54,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-54.00."
+            },
+            {
+              "id": "m8-reconcile-23",
+              "label": "Mower repair",
+              "amount": -210,
+              "correctAmount": -210,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-210.00."
+            },
+            {
+              "id": "m8-reconcile-24",
+              "label": "Willow ACH",
+              "amount": 275,
+              "correctAmount": 275,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $275.00."
+            },
+            {
+              "id": "m8-reconcile-25",
+              "label": "Supplies vendor bill pay",
+              "amount": -180,
+              "correctAmount": -180,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-180.00."
+            },
+            {
+              "id": "m8-reconcile-26",
+              "label": "Cash hedge service",
+              "amount": 60,
+              "correctAmount": 60,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $60.00."
+            },
+            {
+              "id": "m8-reconcile-27",
+              "label": "Owner investment top-up",
+              "amount": 500,
+              "correctAmount": 500,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $500.00."
+            },
+            {
+              "id": "m8-reconcile-28",
+              "label": "Oak Terrace ACH",
+              "amount": 450,
+              "correctAmount": 450,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $450.00."
+            },
+            {
+              "id": "m8-reconcile-29",
+              "label": "Fuel receipt F72",
+              "amount": -72,
+              "correctAmount": -72,
+              "cleared": true,
+              "evidence": "Statement includes this item at signed amount $-72.00."
+            },
+            {
+              "id": "m8-reconcile-30",
+              "label": "Outstanding vendor check dated Sept 30",
+              "amount": -90,
+              "correctAmount": -90,
+              "cleared": false,
+              "evidence": "Recorded in the books but absent from this statement; outstanding at month-end."
+            },
+            {
+              "id": "m8-reconcile-31",
+              "label": "Deposit in transit recorded Sept 30",
+              "amount": 110,
+              "correctAmount": 110,
+              "cleared": false,
+              "evidence": "Recorded in the books but absent from this statement; outstanding at month-end."
+            }
+          ],
+          "explanation": "Correct the supported ledger amount and select only items actually cleared on the statement. Opening plus signed cleared activity must equal ending. Outstanding items remain unchecked; never force a plug."
+        }
+      ],
+      "mission": {
+        "id": "m8-mission",
+        "title": "Sandbox: Month-End Capstone",
+        "steps": [
+          "Open your sandbox and allocate five minutes to the final handoff. Use fictional data only.",
+          "Inspect the Lab CRM Gap invoice and payment from Module 4. Confirm the invoice is settled once, with no duplicate income.",
+          "Inspect the Lab Pine Supply bill and payment from Module 5. Confirm it is paid once and expense was not repeated.",
+          "Run an accrual Balance Sheet, Profit and Loss, AR aging, AP aging and a reconciliation report or the unfinished reconcile screen.",
+          "Write three handoff notes: which invoices remain open, what UF items remain undeposited, and which bank items are outstanding. Document any unfinished correction instead of calling it reconciled."
+        ],
+        "checkpoint": {
+          "id": "m8-cp",
+          "type": "choice",
+          "title": "Month-end checkpoint",
+          "prompt": "Can a zero bank reconciliation difference prove every customer payment hit the correct invoice?",
+          "skill": "Reconciliation",
+          "options": [
+            {
+              "id": "a",
+              "text": "No: inspect customer history and AR aging as well",
+              "explanation": "Wrong invoice application can leave cash and total AR unchanged while collection detail is wrong."
+            },
+            {
+              "id": "b",
+              "text": "Yes: a zero difference proves the entire ledger",
+              "explanation": "Reconciliation tests cleared cash, not every account and application."
+            },
+            {
+              "id": "c",
+              "text": "Yes, provided every deposit uses the correct bank account",
+              "explanation": "A payment can use the correct bank account but be applied to the wrong customer invoice. Review customer detail separately."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Wrong invoice application can leave cash and total AR unchanged while collection detail is wrong."
+        }
+      },
+      "check": [
+        {
+          "id": "m8-c1",
+          "type": "choice",
+          "title": "CRM gap impact",
+          "prompt": "If Oak Court’s $500 ACH is added to income instead of received against OC-500, what is wrong?",
+          "skill": "Customer Cash Cycle",
+          "options": [
+            {
+              "id": "a",
+              "text": "Income and AR each overstated $500",
+              "explanation": "The invoiced sale repeats and the invoice stays open."
+            },
+            {
+              "id": "b",
+              "text": "Only Checking is wrong",
+              "explanation": "The real receipt can be recorded once in Checking while revenue and AR remain wrong."
+            },
+            {
+              "id": "c",
+              "text": "Income overstated $500; AR correctly cleared",
+              "explanation": "Add to Service Income does not apply the payment against AR, so both income and AR are overstated."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The invoiced sale repeats and the invoice stays open."
+        },
+        {
+          "id": "m8-c2",
+          "type": "choice",
+          "title": "Statement arithmetic",
+          "prompt": "Opening $5,000 and signed cleared bank activity $6,860: what statement ending balance should you use?",
+          "skill": "Reconciliation",
+          "options": [
+            {
+              "id": "a",
+              "text": "$11,860",
+              "explanation": "$5,000 + $6,860 = $11,860; the duplicate import and outstanding book items are not statement activity."
+            },
+            {
+              "id": "b",
+              "text": "$12,610",
+              "explanation": "This includes the repeated $750 downloaded row as if it were a second real deposit."
+            },
+            {
+              "id": "c",
+              "text": "$11,880",
+              "explanation": "This adds the net $20 of two outstanding book items (+$110 deposit and −$90 check), which have not cleared the statement."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "$5,000 + $6,860 = $11,860; the duplicate import and outstanding book items are not statement activity."
+        },
+        {
+          "id": "m8-c3",
+          "type": "choice",
+          "title": "Overpayment handoff",
+          "prompt": "Clover Court paid $550 for a $500 invoice. What should the handoff mention?",
+          "skill": "Exception Handling",
+          "options": [
+            {
+              "id": "a",
+              "text": "The $50 remaining customer credit",
+              "explanation": "The invoice is settled and the excess awaits application or a properly linked refund."
+            },
+            {
+              "id": "b",
+              "text": "An extra $50 of earned Service Income",
+              "explanation": "There is no additional earned sale."
+            },
+            {
+              "id": "c",
+              "text": "A $50 outstanding invoice still owed by Clover Court",
+              "explanation": "The customer paid more than the invoice, not less. The excess is a credit owed to the customer, not another receivable."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "The invoice is settled and the excess awaits application or a properly linked refund."
+        }
+      ],
+      "video": {
+        "todo": "TODO: find clip for Month-End Capstone"
+      },
+      "capstone": {
+        "opening": 5000,
+        "ending": 11860,
+        "bankNet": 6860,
+        "exceptions": [
+          {
+            "id": "cap-crm",
+            "label": "CRM sync gap",
+            "amount": 500,
+            "impact": 500,
+            "effect": "Income and AR would each be overstated $500 if the ACH were added as income.",
+            "exerciseId": "m8-exceptions",
+            "optionId": "a"
+          },
+          {
+            "id": "cap-uf",
+            "label": "Grouped deposit bypassed UF",
+            "amount": 750,
+            "impact": 750,
+            "effect": "Income and UF are each overstated $750 until the deposit is repaired.",
+            "exerciseId": "m8-exceptions",
+            "optionId": "b"
+          },
+          {
+            "id": "cap-duplicate",
+            "label": "Duplicate vendor expense",
+            "amount": 240,
+            "impact": 240,
+            "effect": "Book cash understated $240 and expense overstated $240.",
+            "exerciseId": "m8-exceptions",
+            "optionId": "c"
+          },
+          {
+            "id": "cap-application",
+            "label": "Wrong invoice application",
+            "amount": 320,
+            "impact": 320,
+            "effect": "Invoice-level aging wrong $320; total cash, AR and income unchanged.",
+            "exerciseId": "m8-exceptions",
+            "optionId": "d"
+          },
+          {
+            "id": "cap-credit",
+            "label": "Customer overpayment",
+            "amount": 50,
+            "impact": 50,
+            "effect": "Customer credit understated and revenue overstated $50 if treated as new income.",
+            "exerciseId": "m8-exceptions",
+            "optionId": "e"
+          },
+          {
+            "id": "cap-transpose",
+            "label": "Repair transposition",
+            "amount": 36,
+            "impact": 36,
+            "effect": "Book cash overstated $36 and expense understated $36.",
+            "exerciseId": "m8-exceptions",
+            "optionId": "f"
+          }
+        ],
+        "invoices": [
+          {
+            "id": "cap-oc500",
+            "customer": "Oak Court",
+            "amount": 500,
+            "status": "Open $500; ACH confirmed but payment is missing. Receive Payment and apply this invoice."
+          },
+          {
+            "id": "cap-bl1",
+            "customer": "Birch Lane: BL-1, correct application target",
+            "amount": 320,
+            "status": "Open $320; remittance identifies this invoice as the payment’s correct target."
+          },
+          {
+            "id": "cap-bl2",
+            "customer": "Birch Lane: BL-2, incorrectly marked paid",
+            "amount": 320,
+            "status": "Incorrectly marked paid by BL-P320; reopen when the same payment is reapplied to BL-1."
+          },
+          {
+            "id": "cap-cc500",
+            "customer": "Clover Court: $550 received, $50 credit",
+            "amount": 500,
+            "status": "Settled $500 by CC-P550; $50 remains an unapplied customer credit."
+          },
+          {
+            "id": "cap-unpaid",
+            "customer": "Spruce Lane: no payment this month",
+            "amount": 600,
+            "status": "Open $600; no September payment or bank receipt."
+          }
+        ],
+        "bills": [
+          {
+            "id": "PS-240",
+            "vendor": "Pine Supply",
+            "amount": 240,
+            "status": "paid via BP-240; duplicate EXP-DUP-240 needs removal"
+          },
+          {
+            "id": "VP-360",
+            "vendor": "Valley Plants",
+            "amount": 360,
+            "status": "paid via VBP-360"
+          },
+          {
+            "id": "SV-180",
+            "vendor": "Supply Vendor",
+            "amount": 180,
+            "status": "paid via SV-BP180"
+          },
+          {
+            "id": "UNPAID-200",
+            "vendor": "Field Tool Hire",
+            "amount": 200,
+            "status": "open: no September withdrawal"
+          }
+        ]
+      }
+    }
+  ]
+}
