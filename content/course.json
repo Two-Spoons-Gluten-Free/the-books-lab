@@ -444,10 +444,59 @@
             "a"
           ],
           "explanation": "A distribution to the owner is not a cost of providing services."
+        },
+        {
+          "id": "m1-video-check",
+          "type": "choice",
+          "title": "After the clip",
+          "prompt": "Which item is a liability?",
+          "skill": "Account Types",
+          "videoQuestion": true,
+          "options": [
+            {
+              "id": "a",
+              "text": "Cash in Checking",
+              "explanation": "Checking is an asset: money the business holds."
+            },
+            {
+              "id": "b",
+              "text": "An unpaid supplier bill",
+              "explanation": "A supplier bill is an obligation to another party, so it is a liability."
+            },
+            {
+              "id": "c",
+              "text": "Equipment owned by the business",
+              "explanation": "Owned equipment is an asset, not an amount owed."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "A supplier bill is an obligation to another party, so it is a liability."
         }
       ],
       "video": {
-        "todo": "TODO: find clip for The Money Map"
+        "id": "twLzWucjceE",
+        "title": "ACCOUNTING EQUATION: Explained in (Almost) 2 Minutes!",
+        "channel": "Accounting Stuff",
+        "channelUrl": "https://www.youtube.com/@AccountingStuff",
+        "start": 6,
+        "end": 90,
+        "watchFor": "Notice how the equation connects what a business owns with what it owes. Identify assets and liabilities.",
+        "note": "This excerpt covers the equation, assets and liabilities; the lesson supplies the equity examples.",
+        "verifiedUrl": "https://www.youtube.com/watch?v=twLzWucjceE",
+        "verified": "2026-10-05",
+        "timingEvidence": {
+          "url": "https://www.youtube.com/watch?v=twLzWucjceE",
+          "kind": "published chapters",
+          "boundaries": [
+            6,
+            52,
+            73,
+            90
+          ]
+        },
+        "metadataVerified": "YouTube oEmbed returned title, channel, and embed HTML"
       }
     },
     {
@@ -734,10 +783,62 @@
             "a"
           ],
           "explanation": "The payment reduces a liability and cash."
+        },
+        {
+          "id": "m2-video-check",
+          "type": "choice",
+          "title": "After the clip",
+          "prompt": "Do debits always increase every account?",
+          "skill": "Double Entry",
+          "videoQuestion": true,
+          "options": [
+            {
+              "id": "a",
+              "text": "Yes, a debit always increases the balance",
+              "explanation": "A debit increases assets and expenses but decreases liabilities, equity and income."
+            },
+            {
+              "id": "b",
+              "text": "No; the effect depends on the account type",
+              "explanation": "Debit means the left side. Its effect depends on the account type; credits have the opposite effect."
+            },
+            {
+              "id": "c",
+              "text": "Only when cash changes hands",
+              "explanation": "Entries do not require a cash movement, and cash changing hands does not determine every account’s normal balance."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Debit means the left side. Its effect depends on the account type; credits have the opposite effect."
         }
       ],
       "video": {
-        "todo": "TODO: find clip for Double Entry Without Tears"
+        "id": "VhwZ9t2b3Zk",
+        "title": "ACCOUNTING BASICS: Debits and Credits Explained",
+        "channel": "Accounting Stuff",
+        "channelUrl": "https://www.youtube.com/@AccountingStuff",
+        "start": 39,
+        "end": 166,
+        "watchFor": "Listen for why debit and credit do not always mean increase and decrease. The account type determines their effect.",
+        "note": "The excerpt introduces debit/credit meanings and account classifications. Apply the US account names in the practice lab.",
+        "verifiedUrl": "https://www.youtube.com/watch?v=VhwZ9t2b3Zk",
+        "verified": "2026-10-05",
+        "timingEvidence": {
+          "url": "https://www.youtube.com/watch?v=VhwZ9t2b3Zk",
+          "kind": "published chapters",
+          "boundaries": [
+            39,
+            55,
+            82,
+            108,
+            155,
+            166,
+            273
+          ]
+        },
+        "metadataVerified": "YouTube oEmbed returned title, channel, and embed HTML"
       }
     },
     {
@@ -1162,10 +1263,61 @@
             "a"
           ],
           "explanation": "That links the deposit to UF and clears the held receipt."
+        },
+        {
+          "id": "m3-video-check",
+          "type": "choice",
+          "title": "After the clip",
+          "prompt": "Two invoice-payment checks will appear as one combined bank deposit. Where should their Receive Payments go first?",
+          "skill": "Customer Cash Cycle",
+          "videoQuestion": true,
+          "options": [
+            {
+              "id": "a",
+              "text": "Undeposited Funds",
+              "explanation": "Undeposited Funds holds the receipts until Bank Deposit combines them into the amount on the statement."
+            },
+            {
+              "id": "b",
+              "text": "Service Income again",
+              "explanation": "The invoices already recorded accrual revenue. Receiving their payments clears AR rather than creating more income."
+            },
+            {
+              "id": "c",
+              "text": "Accounts Payable",
+              "explanation": "AP tracks amounts owed to vendors, not customer receipts awaiting deposit."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Undeposited Funds holds the receipts until Bank Deposit combines them into the amount on the statement."
         }
       ],
       "video": {
-        "todo": "TODO: find clip for The Customer Cash Cycle"
+        "id": "W4qfTrzbOWs",
+        "title": "How to receive an invoice payment in QuickBooks Online and record a payment using undeposited funds",
+        "channel": "Intuit QuickBooks",
+        "channelUrl": "https://www.youtube.com/@quickbooks",
+        "start": 0,
+        "end": 110,
+        "watchFor": "Watch which invoice is selected and the Deposit to account. Notice why payments awaiting a combined deposit belong in Undeposited Funds.",
+        "note": "The excerpt ends as the next Bank Deposit step is introduced; step through the course diagram for the complete cycle.",
+        "verifiedUrl": "https://www.youtube.com/watch?v=W4qfTrzbOWs",
+        "verified": "2026-10-05",
+        "timingEvidence": {
+          "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/undeposited-funds/record-invoice-payment/L2bBsTlMd_US_en_US",
+          "kind": "official timestamped transcript",
+          "boundaries": [
+            0,
+            22,
+            49,
+            68,
+            86,
+            110
+          ]
+        },
+        "metadataVerified": "YouTube oEmbed returned title, channel, and embed HTML"
       }
     },
     {
@@ -1602,10 +1754,67 @@
             "a"
           ],
           "explanation": "One asset decreases and another increases."
+        },
+        {
+          "id": "m4-video-check",
+          "type": "choice",
+          "title": "After the clip",
+          "prompt": "QBO finds a downloaded bank line that is the same as a payment already recorded. What should you do after verifying it?",
+          "skill": "Bank Feed Decisions",
+          "videoQuestion": true,
+          "options": [
+            {
+              "id": "a",
+              "text": "Post another income or expense entry",
+              "explanation": "That would create a second economic event for a payment already in the books."
+            },
+            {
+              "id": "b",
+              "text": "Match it to the existing record",
+              "explanation": "Matching links the bank evidence to the existing ledger transaction and avoids duplication."
+            },
+            {
+              "id": "c",
+              "text": "Exclude it because it already exists in QBO",
+              "explanation": "A legitimate bank movement should be linked, not hidden as if it were a duplicate download."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Matching links the bank evidence to the existing ledger transaction and avoids duplication."
         }
       ],
       "video": {
-        "todo": "TODO: find clip for Bank Feeds: Match, Add, Transfer, Exclude"
+        "id": "ONVtUdZ2Vu0",
+        "title": "How to use the AI-powered banking page",
+        "channel": "Intuit QuickBooks",
+        "channelUrl": "https://www.youtube.com/@quickbooks",
+        "start": 147,
+        "end": 196,
+        "watchFor": "Watch how matching links a transaction already entered, and how moving money between accounts differs from income or expense.",
+        "note": "This newer QBO view uses Pending and Posted. Your layout may use For Review and Categorized; the accounting decision is the same.",
+        "verifiedUrl": "https://www.youtube.com/watch?v=ONVtUdZ2Vu0",
+        "verified": "2026-10-05",
+        "timingEvidence": {
+          "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/matching-rules/learn-updates-new-ai-powered-banking-page/L0hR7A9Zf_US_en_US",
+          "kind": "official timestamped transcript",
+          "boundaries": [
+            0,
+            25,
+            41,
+            65,
+            87,
+            105,
+            128,
+            147,
+            173,
+            196,
+            220,
+            241
+          ]
+        },
+        "metadataVerified": "YouTube oEmbed returned title, channel, and embed HTML"
       }
     },
     {
@@ -1992,10 +2201,63 @@
             "a"
           ],
           "explanation": "Scheduled and cleared are different states; do not invent a second expense."
+        },
+        {
+          "id": "m5-video-check",
+          "type": "choice",
+          "title": "After the clip",
+          "prompt": "You already paid an entered bill with a handwritten check. Which workflow fits?",
+          "skill": "Vendor Cycle",
+          "videoQuestion": true,
+          "options": [
+            {
+              "id": "a",
+              "text": "Create a second expense for the bank withdrawal",
+              "explanation": "The bill already recorded the expense. A second expense would duplicate the cost."
+            },
+            {
+              "id": "b",
+              "text": "Schedule another payment for the same bill",
+              "explanation": "The vendor has already been paid. Sending another payment risks paying twice."
+            },
+            {
+              "id": "c",
+              "text": "Record the payment against the bill, with the bank account and check number",
+              "explanation": "Recording the payment against the existing bill clears AP and records the bank withdrawal without duplicating expense."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Recording the payment against the existing bill clears AP and records the bank withdrawal without duplicating expense."
         }
       ],
       "video": {
-        "todo": "TODO: find clip for The Vendor Side"
+        "id": "CjcTT4H0cKA",
+        "title": "How to add and pay bills in QuickBooks Online",
+        "channel": "Intuit QuickBooks",
+        "channelUrl": "https://www.youtube.com/@quickbooks",
+        "start": 99,
+        "end": 251,
+        "watchFor": "Follow the bill into payment. Distinguish scheduling a payment from recording one already made.",
+        "note": "Bill Pay features vary by plan. The sandbox mission uses recording a bill payment, so do not send an actual payment.",
+        "verifiedUrl": "https://www.youtube.com/watch?v=CjcTT4H0cKA",
+        "verified": "2026-10-05",
+        "timingEvidence": {
+          "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/pay-bills/enter-bills-record-bill-payments-quickbooks-online/L1e9Ce5J7_US_en_US",
+          "kind": "official timestamped transcript",
+          "boundaries": [
+            0,
+            99,
+            126,
+            154,
+            178,
+            209,
+            228,
+            251
+          ]
+        },
+        "metadataVerified": "YouTube oEmbed returned title, channel, and embed HTML"
       }
     },
     {
@@ -2276,10 +2538,66 @@
             "a"
           ],
           "explanation": "Edited, deleted or un-reconciled transactions can disturb the opening."
+        },
+        {
+          "id": "m6-video-check",
+          "type": "choice",
+          "title": "After the clip",
+          "prompt": "A payment is in QBO but is not on this bank statement. Should you check it as cleared for this reconciliation?",
+          "skill": "Reconciliation",
+          "videoQuestion": true,
+          "options": [
+            {
+              "id": "a",
+              "text": "Yes, because every QBO item must be checked",
+              "explanation": "An outstanding payment may clear on a later statement. Checking it early distorts this period’s cleared balance."
+            },
+            {
+              "id": "b",
+              "text": "No; leave it outstanding until it appears on the statement",
+              "explanation": "Clear only items supported by this statement. QBO and bank timing can legitimately differ."
+            },
+            {
+              "id": "c",
+              "text": "Delete it to force the statement to balance",
+              "explanation": "A valid outstanding transaction remains in the books. Deleting it destroys a real recorded obligation or payment."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Clear only items supported by this statement. QBO and bank timing can legitimately differ."
         }
       ],
       "video": {
-        "todo": "TODO: find clip for Reconciliation"
+        "id": "YTss2L7Fo3Q",
+        "title": "How to reconcile your accounts in QuickBooks Online",
+        "channel": "Intuit QuickBooks",
+        "channelUrl": "https://www.youtube.com/@quickbooks",
+        "start": 58,
+        "end": 144,
+        "watchFor": "Watch where the statement ending balance and date come from, and which ledger items should be checked as cleared.",
+        "note": "This excerpt shows classic reconciliation. It stops before troubleshooting; use source evidence in the practice lab to find the planted error.",
+        "verifiedUrl": "https://www.youtube.com/watch?v=YTss2L7Fo3Q",
+        "verified": "2026-10-05",
+        "timingEvidence": {
+          "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/statement-reconciliation/reconcile-account-quickbooks-online/L5PO58h0S_US_en_US",
+          "kind": "official timestamped transcript",
+          "boundaries": [
+            0,
+            22,
+            39,
+            58,
+            82,
+            104,
+            123,
+            144,
+            157,
+            181,
+            203
+          ]
+        },
+        "metadataVerified": "YouTube oEmbed returned title, channel, and embed HTML"
       }
     },
     {
@@ -2736,10 +3054,66 @@
             "a"
           ],
           "explanation": "Normal records and totals change, but the audit trail retains the action."
+        },
+        {
+          "id": "m7-video-check",
+          "type": "choice",
+          "title": "After the clip",
+          "prompt": "The beginning balance changed after someone edited a previously reconciled transaction. What is the best first step?",
+          "skill": "Exception Handling",
+          "videoQuestion": true,
+          "options": [
+            {
+              "id": "a",
+              "text": "Create a plug entry equal to the difference",
+              "explanation": "A plug can hide the actual change and introduce another unsupported transaction."
+            },
+            {
+              "id": "b",
+              "text": "Ignore the beginning balance and finish the new month",
+              "explanation": "Each reconciliation starts from the prior period’s verified ending balance. Ignoring the change breaks that connection."
+            },
+            {
+              "id": "c",
+              "text": "Inspect the discrepancy report and transaction history against the prior statement",
+              "explanation": "The report identifies what changed. Verify it against evidence before agreeing on a supported correction with your supervisor."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "The report identifies what changed. Verify it against evidence before agreeing on a supported correction with your supervisor."
         }
       ],
       "video": {
-        "todo": "TODO: find clip for The Exceptions Lab"
+        "id": "r8kiMCgklOs",
+        "title": "How to fix beginning balance issues when reconciling in QuickBooks Online",
+        "channel": "Intuit QuickBooks",
+        "channelUrl": "https://www.youtube.com/@quickbooks",
+        "start": 0,
+        "end": 101,
+        "watchFor": "Look for how changed reconciled transactions affect the next beginning balance, and how the discrepancy report and history identify the change.",
+        "note": "Investigate the history and source records before a correction. Get your supervisor or accountant involved when a previously reconciled period is affected.",
+        "verifiedUrl": "https://www.youtube.com/watch?v=r8kiMCgklOs",
+        "verified": "2026-10-05",
+        "timingEvidence": {
+          "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/statement-reconciliation/fix-issues-accounts-reconciled-past-quickbooks/L8lx6PQQ5_US_en_US",
+          "kind": "official timestamped transcript",
+          "boundaries": [
+            0,
+            19,
+            39,
+            59,
+            79,
+            101,
+            125,
+            148,
+            177,
+            197,
+            216
+          ]
+        },
+        "metadataVerified": "YouTube oEmbed returned title, channel, and embed HTML"
       }
     },
     {
@@ -3658,10 +4032,66 @@
             "a"
           ],
           "explanation": "The invoice is settled and the excess awaits application or a properly linked refund."
+        },
+        {
+          "id": "m8-video-check",
+          "type": "choice",
+          "title": "After the clip",
+          "prompt": "The capstone still has an unexplained difference. What is the appropriate finish?",
+          "skill": "Reconciliation",
+          "videoQuestion": true,
+          "options": [
+            {
+              "id": "a",
+              "text": "Accept an adjustment solely because it makes the difference zero",
+              "explanation": "An unexplained adjustment can conceal missing, duplicate, or misrecorded transactions."
+            },
+            {
+              "id": "b",
+              "text": "Verify statement settings and records, resolve supported errors, then finish",
+              "explanation": "A completed reconciliation needs supported amounts and cleared items. If an issue remains unresolved, ask the supervisor rather than forcing an adjustment."
+            },
+            {
+              "id": "c",
+              "text": "Check all outstanding items until the numbers agree",
+              "explanation": "A valid outstanding payment must stay uncleared when it is absent from the statement."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "A completed reconciliation needs supported amounts and cleared items. If an issue remains unresolved, ask the supervisor rather than forcing an adjustment."
         }
       ],
       "video": {
-        "todo": "TODO: find clip for Month-End Capstone"
+        "id": "YTss2L7Fo3Q",
+        "title": "How to reconcile your accounts in QuickBooks Online",
+        "channel": "Intuit QuickBooks",
+        "channelUrl": "https://www.youtube.com/@quickbooks",
+        "start": 144,
+        "end": 203,
+        "watchFor": "Watch what to verify when a difference remains, and why accepting an adjusting entry just to finish needs caution.",
+        "note": "This is a separate troubleshooting excerpt from the Module 6 tutorial. In the capstone, resolve the supported errors rather than forcing a zero.",
+        "verifiedUrl": "https://www.youtube.com/watch?v=YTss2L7Fo3Q",
+        "verified": "2026-10-05",
+        "timingEvidence": {
+          "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/statement-reconciliation/reconcile-account-quickbooks-online/L5PO58h0S_US_en_US",
+          "kind": "official timestamped transcript",
+          "boundaries": [
+            0,
+            22,
+            39,
+            58,
+            82,
+            104,
+            123,
+            144,
+            157,
+            181,
+            203
+          ]
+        },
+        "metadataVerified": "YouTube oEmbed returned title, channel, and embed HTML"
       },
       "capstone": {
         "opening": 5000,

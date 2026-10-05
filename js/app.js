@@ -37,8 +37,10 @@ function modulePage(m){
   main.querySelector('.capstone-ledger').innerHTML=`<details class="evidence" open><summary>Month-end evidence packet · invoices and bills</summary><h3>Customer ledger</h3>${m.capstone.invoices.map(i=>`<p><strong>${esc(i.id)}</strong> · ${esc(i.customer)} · ${money(i.amount)}${i.status?` · ${esc(i.status)}`:''}</p>`).join('')}<h3>Vendor ledger</h3>${m.capstone.bills.map(b=>`<p><strong>${esc(b.id)}</strong> · ${esc(b.vendor)} · ${money(b.amount)} · ${esc(b.status)}</p>`).join('')}<p>Statement beginning ${money(m.capstone.opening)} · Ending ${money(m.capstone.ending)}. Bank-feed imports include one duplicate; count only actual statement movements.</p></details>`;
  }
  const onAttempt=(q,r,a,t)=>attempt(m.id,q,r,a,t);
+ const videoQuestion=m.check.find(q=>q.videoQuestion);
+ if(m.video&&!m.video.todo&&videoQuestion)main.querySelector('.video-slot').append(exercise(videoQuestion,onAttempt,latest(videoQuestion.id)));
  for(const q of m.practice)main.querySelector('.practice-slot').append(exercise(q,onAttempt,latest(q.id)));
- for(const q of m.check)main.querySelector('.check-slot').append(exercise(q,onAttempt,latest(q.id)));
+ for(const q of m.check.filter(q=>!q.videoQuestion||m.video?.todo))main.querySelector('.check-slot').append(exercise(q,onAttempt,latest(q.id)));
  if(m.mission)main.querySelector('.mission-slot').append(mission(m.mission,state,(id,value)=>{state.checks[id]=value;save();updateCompletion(m,main.querySelector('.completion-panel'));},onAttempt,latest(m.mission.checkpoint.id)));
  updateCompletion(m,main.querySelector('.completion-panel'));
 }

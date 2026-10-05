@@ -1,6 +1,6 @@
 # Release verification · October 5, 2026
 
-Course source commit: `c2de06c`.
+Initial release source commit: `c2de06c`. The subsequent video update is documented in [video-clips.md](video-clips.md).
 
 Live site: https://two-spoons-gluten-free.github.io/the-books-lab/
 
@@ -18,7 +18,11 @@ GitHub Actions deployment: https://github.com/Two-Spoons-Gluten-Free/the-books-l
 ## Limits
 
 - Browser tests simulate sandbox checkboxes; they do not operate QBO or verify learner competency in production books. Active learning time includes the real sandbox missions and cannot be established by an automated run.
-- Every optional video is explicitly marked TODO in the content data. No unverified videos or timestamps are embedded.
+- The initial release left clips as TODO. The subsequent video update fills all eight modules with verified excerpts, published timing evidence, and immediate scored follow-up questions; no video TODOs remain.
 - Optional Google Sheets delivery has no configured live endpoint. Tests validate the browser retry contract and run the receiver using an in-memory Sheet adapter. Actual Google delivery must be verified after configuring a parent-owned deployment; no-cors responses cannot prove acceptance.
 
 Run the optional live harness with `COURSE_URL=https://two-spoons-gluten-free.github.io/the-books-lab/ node tests/browser.mjs` after installing Playwright as described in the README.
+
+## Video update
+
+Local Chrome completed all 69 activities and verified exactly one privacy-enhanced embed per module, the correct start/end range, and a scored question immediately after each clip. `npm test` passes all 10 tests and validates all 69 exercises. YouTube oEmbed returned public metadata and embed HTML for each of the seven source videos. All eight excerpts last under three minutes. See the clip manifest for source and timing evidence.

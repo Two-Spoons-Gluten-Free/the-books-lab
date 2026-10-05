@@ -34,6 +34,11 @@ try{
  await route('review');await solve(first);await page.locator('.review-next').click();
  for(const m of course.modules){
   await route(m.id);
+  if(m.video&&!m.video.todo){
+   assert.equal(await page.locator('.video-clip iframe').count(),1,`${m.id}: one embedded clip`);
+   assert.equal(await page.locator('.video-clip iframe').getAttribute('src'),`https://www.youtube-nocookie.com/embed/${m.video.id}?start=${m.video.start}&end=${m.video.end}&rel=0`);
+   assert.equal(await page.locator('.video-slot').evaluate(el=>el.children[1]?.querySelector('h3')?.textContent),'After the clip',`${m.id}: question immediately after video`);
+  }
   if(m.diagram.type==='flow'){
    while(await page.locator('.flow-toolbar .next').isEnabled())await page.locator('.flow-toolbar .next').click();
    if(m.diagram.wrongSteps?.length){await page.locator('.flow-toolbar .path').click();while(await page.locator('.flow-toolbar .next').isEnabled())await page.locator('.flow-toolbar .next').click();}

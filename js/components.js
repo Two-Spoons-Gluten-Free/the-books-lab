@@ -110,5 +110,6 @@ export function video(v){
  // Clip-selection notes belong to editable content, not the learner interface.
  if(!v||v.todo)return node('<div></div>');
  if(!/^[\w-]{11}$/.test(v.id)||!Number.isInteger(v.start)||!Number.isInteger(v.end)||v.end-v.start>300||v.end<=v.start)return node('<p>No verified clip configured.</p>');
- return node(`<aside><p>${esc(v.watchFor)}</p><iframe title="${esc(v.title)}" loading="lazy" src="https://www.youtube-nocookie.com/embed/${esc(v.id)}?start=${v.start}&end=${v.end}" allowfullscreen></iframe></aside>`);
+ const stamp=seconds=>`${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`;
+ return node(`<aside class="video-clip"><div class="eyebrow">WATCH FOR THIS · ${stamp(v.end-v.start)} CLIP</div><h3>${esc(v.title)}</h3><p>${esc(v.watchFor)}</p><iframe title="${esc(v.title)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/${esc(v.id)}?start=${v.start}&end=${v.end}&rel=0" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><p class="hint">${esc(v.channel)} · excerpt ${stamp(v.start)}–${stamp(v.end)}. ${esc(v.note||'')}</p><a href="${esc(v.verifiedUrl)}&t=${v.start}s" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a><small> If you use the full-video link, stop at ${stamp(v.end)}.</small></aside>`);
 }

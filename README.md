@@ -28,7 +28,7 @@ npx playwright install chromium
 node tests/browser.mjs
 ```
 
-The harness solves all 61 activities, exercises wrong-answer review, reload, JSON download, mobile width, and blocked storage. It checks sandbox checkboxes as a simulation and does not operate QBO. `COURSE_URL` can point it at the deployed site; `CHROME_PATH` can select an installed Chrome executable. Playwright is not shipped to learners or needed by the course.
+The harness solves all 69 activities, exercises wrong-answer review, reload, JSON download, mobile width, and blocked storage. It checks sandbox checkboxes as a simulation and does not operate QBO. `COURSE_URL` can point it at the deployed site; `CHROME_PATH` can select an installed Chrome executable. Playwright is not shipped to learners or needed by the course.
 
 ## What the learner does
 
@@ -64,7 +64,7 @@ All course lessons, answer keys, scenarios, missions, sources, and optional clip
 
 ### Optional verified video clips
 
-All eight modules currently have an explicit `TODO: find clip` entry. No unverified URLs or timestamps are embedded. The interactive lessons stand on their own.
+All eight modules now have a verified short excerpt: two from Accounting Stuff and six from Intuit QuickBooks. The eight excerpts use seven videos, with separate reconciliation excerpts for Modules 6 and 8. Each lasts 49–152 seconds. See [the clip manifest](docs/video-clips.md) for exact ranges and primary verification sources. Each clip has a watch prompt and one scored question immediately afterward. The interactive lessons also stand on their own.
 
 To add a clip, verify the video and the specific start/end interval with an official Intuit/QuickBooks channel, Accounting Stuff, or Hector Garcia CPA. Replace the module's `video` with:
 
@@ -76,11 +76,17 @@ To add a clip, verify the video and the specific start/end interval with an offi
   "end": 150,
   "watchFor": "What happens to Accounts Receivable when payment is received?",
   "verifiedUrl": "Paste the actual source URL here",
-  "verified": "YYYY-MM-DD"
+  "verified": "YYYY-MM-DD",
+  "channel": "Intuit QuickBooks",
+  "timingEvidence": {
+    "url": "Paste the official transcript or creator chapter URL",
+    "kind": "official timestamped transcript",
+    "boundaries": [0, 150]
+  }
 }
 ```
 
-The ID shown is a schema illustration, not a real video. Use at most one clip per module, ideally three minutes or less, never more than five. Pair it with a single scored question in `check` and mark that question `"videoQuestion": true`; the renderer uses `youtube-nocookie.com`.
+The ID shown is a schema illustration, not a real video. Use at most one clip per module, ideally three minutes or less, never more than five. Both excerpt endpoints must be real published markers listed in `timingEvidence.boundaries`; the example values above are schema illustrations and must be replaced with verified timings. Pair the clip with a single scored question in `check` and mark that question `"videoQuestion": true`. That question is displayed immediately after the clip, while the remaining checks stay at the end of the module. The renderer uses `youtube-nocookie.com`. If no suitable clip can be verified, use `{"todo":"TODO: find clip for <topic>"}` and remove the video question.
 
 ### QBO sandbox co-pilot
 
@@ -116,4 +122,4 @@ The endpoint and token are visible in a public site. **The token only filters ju
 
 ## Verification limits
 
-Content and scoring tests cannot prove that a learner spent four hours, performed the sandbox steps, or can independently keep production books. Sandbox checkboxes are self-reported. Videos are intentionally pending verification. Live Google Sheets delivery requires a parent-owned endpoint and is tested only after one is configured.
+Content and scoring tests cannot prove that a learner spent four hours, performed the sandbox steps, or can independently keep production books. Sandbox checkboxes are self-reported. Video topic and timing verification is recorded in the clip manifest; availability can change. Live Google Sheets delivery requires a parent-owned endpoint and is tested only after one is configured.

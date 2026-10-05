@@ -105,7 +105,10 @@ for (const [index,m] of course.modules.entries()) {
   assert(/^[\w-]{11}$/.test(m.video.id),`${m.id}: invalid video ID`);
   assert(Number.isInteger(m.video.start)&&Number.isInteger(m.video.end)&&m.video.start>=0&&m.video.end>m.video.start&&m.video.end-m.video.start<=300,`${m.id}: clip must be at most five minutes`);
   assert(m.video.title&&m.video.watchFor&&/^https:\/\//.test(m.video.verifiedUrl)&&/^\d{4}-\d{2}-\d{2}$/.test(m.video.verified),`${m.id}: verified source and watch prompt required`);
-  assert(m.check.some(q=>q.videoQuestion===true),`${m.id}: mark one scored question videoQuestion:true`);
+  assert.equal(m.check.filter(q=>q.videoQuestion===true).length,1,`${m.id}: mark exactly one scored question videoQuestion:true`);
+  assert(['Intuit QuickBooks','Accounting Stuff','Hector Garcia CPA'].includes(m.video.channel),`${m.id}: trusted channel required`);
+  assert(m.video.verifiedUrl.includes(m.video.id),`${m.id}: video URL must match its ID`);
+  assert(m.video.timingEvidence?.url&&m.video.timingEvidence.boundaries.includes(m.video.start)&&m.video.timingEvidence.boundaries.includes(m.video.end),`${m.id}: both slice boundaries need published timing evidence`);
  }
  if(m.diagram.type==='equation') {
   let A=0,L=0,E=0,I=0,X=0;
